@@ -495,17 +495,13 @@
               <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
 
                 <pre><code>
-                Section "InputClass"
-        
-                Identifier "Yuancon"
-        
-                MatchProduct "YuanCon YuanCon Mouse"
-        
-                MatchDevicePath "/dev/input/event*"
-        
-                Driver "evdev"
-        
-                EndSection</code></pre>
+<!--         -->Section "InputClass" 
+<!--         -->    Identifier "Yuancon"
+<!--         -->    MatchProduct "YuanCon YuanCon Mouse"
+<!--         -->    MatchDevicePath "/dev/input/event*"
+<!--         -->    Driver "evdev"
+<!--         -->EndSection        
+                </code></pre>
               </li>
 
               <li>Restart the X server or your PC</li>
@@ -539,17 +535,13 @@
                 <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
 
                   <pre><code>
-            Section "InputClass"
-        
-            Identifier "Yuancon"
-        
-            MatchProduct "YuanCon YuanCon Mouse"
-        
-            MatchDevicePath "/dev/input/event*"
-        
-            Driver "libinput"
-        
-            EndSection</code></pre>
+<!--           -->Section "InputClass"
+<!--           -->    Identifier "Yuancon"
+<!--           -->    MatchProduct "YuanCon YuanCon Mouse"
+<!--           -->    MatchDevicePath "/dev/input/event*"
+<!--           -->    Driver "libinput"
+<!--           -->EndSection
+                  </code></pre>
                 </li>
 
                 <li>Restart the X server or your PC</li>
