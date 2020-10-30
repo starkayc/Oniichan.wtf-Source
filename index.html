@@ -473,7 +473,6 @@
         <div class="accordion-item-body-content">
           <p>Yuancon doesn't support Linux officially, but it can work on Linux with a few steps. There's two methods currently available. </p>
 
-          <ol>
             <b style="color:#f92672">Method 1</b>:
             <br>
             Requirements:
@@ -488,9 +487,7 @@
 
             <br>
 
-            <ol>
-
-              <li>Install <code>evdev</code></li>
+            <ol><li>Install <code>evdev</code></li>
 
               <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
 
@@ -513,9 +510,6 @@
 
             <b style="color:#f92672">Method 2</b>:
             <br>
-
-            <ol>
-
               Requirements:
 
               <ul>
@@ -548,6 +542,37 @@
                 <p class="font-italic">source: <span style="color:#a6e22e">Oxystyle#3791</span> on Discord</p>
 
               </ol><br>
+
+              <br>
+
+              <b style="color:#f92672">Method 3</b>:
+              <br>  
+                Requirements:
+  
+                <ul>
+  
+                  <li>The controller must be in <b style="color:#f92672">Mode 1</b></li>
+  
+                </ul>
+  
+                <br>
+  
+                <ol>
+  
+  
+                  <li>Create a file named <code>99-yuancon-sdvx.rules</code> in <code>/etc/udev/rules.d/</code> containing these lines:
+  
+                    <pre><code>
+  <!--           -->    ACTION=="add|change", KERNEL=="event[0-9]*", 
+  <!--           -->    ENV{ID_VENDOR_ID}=="51bf", ENV{ID_MODEL_ID}=="2101", 
+  <!--           -->    ENV{ID_INPUT_MOUSE}="1"
+                    </code></pre>
+                  </li>
+  
+                  <li>Afterwards use <code>udevadm control --reload-rules</code> to reload.</li>
+                  <p class="font-italic">source: <span style="color:#a6e22e">clam#9791</span> on Discord</p>
+  
+                </ol><br>
 
         </div>
       </div>
