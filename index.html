@@ -6,6 +6,7 @@
   <title>Home</title>
   <meta charset="utf-8">
   <meta property="og:description" content="StarKayC's guide on frequently asked questions for SDVX & Yuancon." />
+  <meta content="StarKayC's guide on frequently asked questions for SDVX & Yuancon." name="description">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:type" content="website" />
@@ -436,7 +437,7 @@
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          If you've received any damaged parts, add and message <b style="color:#f92672">yuan0312#7539</b> on discord. You can also join the discord server at: <a style="color:#f92672" href="https://discord.gg/4ncuRrq">https://discord.gg/4ncuRrq<a> 
+          If you've received any damaged parts, add and message <b style="color:#f92672">yuan0312#7539</b> on discord. You can also join the discord server at: <a style="color:#f92672" href="https://discord.gg/4ncuRrq">https://discord.gg/4ncuRrq<a>
 
           </div>
       </div>
@@ -448,7 +449,7 @@
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          This varies from country to country, so you'll have to look up the import taxes for your country. Some customers received their controller without having to pay taxes. 
+          This varies from country to country, so you'll have to look up the import taxes for your country. Some customers received their controller without having to pay taxes.
         </div>
       </div>
     </div>
@@ -464,7 +465,7 @@
 
           <b style="color:#f92672">XMOD</b>: Multiply by BPM. (default sdvx hispeed behavior)<br>
 
-          <b style="color:#f92672">MMOD</b>: Finely tuned speed that can be locked in to persist between songs. (sdvx floating hispeed behavior with double tap start/red number when locked in) <br> 
+          <b style="color:#f92672">MMOD</b>: Finely tuned speed that can be locked in to persist between songs. (sdvx floating hispeed behavior with double tap start/red number when locked in) <br>
         </div>
       </div>
     </div>
@@ -475,7 +476,7 @@
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          Yes, there's multiple guides on how to build your own SDVX Controller. There's an <a style="color:#f92672" href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/"> SDVX Controller</a> & <a style="color:#f92672" href="https://github.com/speedypotato/Pocket-SDVX"> Pocket SDVX guide</a>. 
+          Yes, there's multiple guides on how to build your own SDVX Controller. There's an <a style="color:#f92672" href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/"> SDVX Controller</a> & <a style="color:#f92672" href="https://github.com/speedypotato/Pocket-SDVX"> Pocket SDVX guide</a>.
         </div>
       </div>
     </div>
@@ -486,7 +487,7 @@
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          Try using a USB 2.0/3.0 port and make sure if you're using a USB HUB that it has enough power to run the controller. If that doesn't solve the issue, open the case and check if there's anything unplugged. 
+          Try using a USB 2.0/3.0 port and make sure if you're using a USB HUB that it has enough power to run the controller. If that doesn't solve the issue, open the case and check if there's anything unplugged.
         </div>
       </div>
     </div>
@@ -529,12 +530,12 @@
               <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
 
                 <pre><code>
-<!--         -->Section "InputClass" 
+<!--         -->Section "InputClass"
 <!--         -->    Identifier "Yuancon"
 <!--         -->    MatchProduct "YuanCon YuanCon Mouse"
 <!--         -->    MatchDevicePath "/dev/input/event*"
 <!--         -->    Driver "evdev"
-<!--         -->EndSection        
+<!--         -->EndSection
                 </code></pre>
               </li>
 
@@ -583,32 +584,32 @@
               <br>
 
               <b style="color:#f92672">Method 3</b>:
-              <br>  
+              <br>
                 Requirements:
-  
+
                 <ul>
-  
+
                   <li>The controller must be in <b style="color:#f92672">Mode 1</b></li>
-  
+
                 </ul>
-  
+
                 <br>
-  
+
                 <ol>
-  
-  
+
+
                   <li>Create a file named <code>99-yuancon-sdvx.rules</code> in <code>/etc/udev/rules.d/</code> containing these lines:
-  
+
                     <pre><code>
-  <!--           -->    ACTION=="add|change", KERNEL=="event[0-9]*", 
-  <!--           -->    ENV{ID_VENDOR_ID}=="51bf", ENV{ID_MODEL_ID}=="2101", 
+  <!--           -->    ACTION=="add|change", KERNEL=="event[0-9]*",
+  <!--           -->    ENV{ID_VENDOR_ID}=="51bf", ENV{ID_MODEL_ID}=="2101",
   <!--           -->    ENV{ID_INPUT_MOUSE}="1"
                     </code></pre>
                   </li>
-  
+
                   <li>Afterwards use <code>udevadm control --reload-rules</code> to reload.</li>
                   <p class="font-italic">source: <span style="color:#a6e22e">clam#9791</span> on Discord</p>
-  
+
                 </ol><br>
 
         </div>
@@ -621,7 +622,7 @@
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          You can use Silicone or Lithium based lubricant. <b style="color:red">DO NOT USE VASELINE OR WD-40</b>. 
+          You can use Silicone or Lithium based lubricant. <b style="color:red">DO NOT USE VASELINE OR WD-40</b>.
         </div>
       </div>
     </div>
@@ -632,7 +633,7 @@
         <div class="accordion-item-body">
           <div class="accordion-item-body-content">
             <p>You can try adding more solder if it's loose, or if it's broken, you can solder it back using the video below as a demonstration. If you don't want to take that route, you can also message <b style="color:#f92672">yuan0312#7539</b> on discord for a replacement.</p>
-  
+
             <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/uguPxmkmaSg?start=70&end=82;?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
           </div>
         </div>
