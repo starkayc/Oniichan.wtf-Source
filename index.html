@@ -10,17 +10,19 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:type" content="website" />
-  <!-- Responsive datatable examples -->
+
+  <!-- CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
   <link href="assets/css/cutie.css" rel="stylesheet" type="text/css">
   <link href="assets/css/monokai.css" rel="stylesheet" type="text/css">
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/video-js.min.css" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-    <img class="navbar-brand" src="assets/images/favicon.png">
+    <img class="navbar-brand" alt="favicon" src="assets/images/favicon.png">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,26 +38,24 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="songs.html">
-            <i class="fa fa-music fa-fw">
-            </i>
+            <i class="fa fa-music fa-fw"></i>
             Songs
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="skins.html">
-            <i class="fa fa-paint-brush">
-            </i>
+            <i class="fa fa-paint-brush"></i>
             Skins
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/starkayc/Oniichan.wtf-Source">
-            <i class="fa fa-code">
-            </i>
+            <i class="fa fa-code"></i>
             Source
           </a>
         </li>
       </ul>
+    </div>
   </nav>
 
   <div class="container">
@@ -79,10 +79,10 @@
       <thead>
         <tr>
           <th>
-            <h1>Buttons</h1>
+            <h1>Button Options</h1>
           </th>
           <th>
-            <h1>Buttons Size</h1>
+            <h1>Button Size</h1>
           </th>
           <th>
             <h1>Springs</h1>
@@ -136,13 +136,13 @@
       <thead>
         <tr>
           <th>
-            <h1>BT Buttons</h1>
+            <h1>BT Button</h1>
           </th>
           <th>
-            <h1>FX Buttons</h1>
+            <h1>FX Button</h1>
           </th>
           <th>
-            <h1>Start Buttons</h1>
+            <h1>Start Button</h1>
           </th>
           <th>
             <h1>Springs</h1>
@@ -168,11 +168,11 @@
         <tr>
           <td><a style="color:#ffff" href="https://www.aliexpress.com/item/33043452010.html">Chinese</a></li>
           </td>
-          <td><a style="color:#ffff" href="https://www.aliexpress.com/item/32917185090.html">Chinese</a></li>
+          <td><a style="color:#ffff" href="https://www.aliexpress.com/item/2251832872358179.html">Chinese</a></li>
           </td>
-          <td><a style="color:#ffff" href="https://www.aliexpress.com/item/32804514696.html">Chinese</a></td>
+          <td><a style="color:#ffff" href="https://www.aliexpress.com/item/2251832871170004.html">Chinese</a></td>
           <td><a style="color:#ffff" href="https://item.rakuten.co.jp/sanwadenshi/ilumb_303/">40g</a></td>
-          <td><a style="color:#ffff" href="https://item.rakuten.co.jp/sanwadenshi/ilumb_223/">50g</a></td>
+          <td><a style="color:#ffff" href="https://item.rakuten.co.jp/auc-treevillage/d2mv-01-1c3/">50g</a></td>
           <td></td>
 
         </tr>
@@ -324,9 +324,7 @@
   </div>
 
   <div class="container">
-
-    <h2 class="card-title font-55 mt-0" id=faq>Frequently Asked Questions</h2>
-    <br>
+    <h2 class="card-title font-55 mt-0" id="faq">Frequently Asked Questions</h2><br>
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">My controller didn't include an Allen key nor screwdriver. What should I do?</a>
@@ -354,21 +352,15 @@
       <div class="accordion-item-body" style="color:black">
         <div class="accordion-item-body-content">
           Yes, you can either print or cut the paper in the following dimensions:
-
           <ul>
-
             <li><b style="color:#f92672">BT</b>: 4.6x4.6cm</li>
-
             <li><b style="color:#f92672">FX</b>: 3.7x1.9cm</li>
-
             <li><b style="color:#f92672">START</b>: 2.1x2.1cm</li>
-
           </ul>
-
           <p>After you've printed or cut the paper, you'll have to disassemble the controller now.</p>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/VXo_OGKIBcc?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
-
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/CustomDJDAO.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -379,9 +371,13 @@
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
           <p>If your knobs are feeling too loose or tight then check the video below.</p>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/5VJMeP0ZHgU?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/mYdw3rwARSQ?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/adjustknobfeel.mp4" type="video/mp4">
+          </video>
+          <br>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/adjustknobtight.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -392,8 +388,9 @@
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
           <p>You can sand the edges of the button to help out. You can also check the video below on how to clean your buttons.</p>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/eIRsEVPeJUo?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/cleanbutton.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -404,16 +401,20 @@
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
           <p>It's relatively easy to install new buttons or springs. Check the first video for v1 and the second video for v2. If you're switching from stock to Sanwa, check the third video.</p>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/zyc1Jm8J_4I?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/d3ThWetHoFM?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/bVoVTgn7Zh8?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/changebuttons.mp4" type="video/mp4">
+          </video>
+          <br>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/condismantle.mp4" type="video/mp4">
+          </video>
+          <br>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/sanwabutton.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">How do I reassemble/disassemble my Yuancon?</a>
@@ -421,24 +422,22 @@
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
           <p>Check the video below to see how it's done. It can take a bit of time for the first time.</p>
-
-          <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/RTGz3Ytcsng?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/yuancon.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">My controller arrived damaged, is there anything I can do?</a>
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          If you've received any damaged parts, add and message <b style="color:#f92672">yuan0312#7539</b> on discord. You can also join the discord server at: <a style="color:#f92672" href="https://discord.gg/4ncuRrq">https://discord.gg/4ncuRrq<a>
-
-          </div>
+          If you've received any damaged parts, add and message <b style="color:#f92672">yuan0312#7539</b> on discord. You can also join the discord server at: <a style="color:#f92672" href="https://discord.gg/4ncuRrq">https://discord.gg/4ncuRrq</a>
+        </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">Will customs charge me import tax?</a>
@@ -449,34 +448,28 @@
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">What's the difference between CMOD, XMOD, and MMOD?</a>
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-
           <b style="color:#f92672">CMOD</b>: Constant Hi-Speed with no changes. (cheater mod)<br>
-
           <b style="color:#f92672">XMOD</b>: Multiply by BPM. (default sdvx hispeed behavior)<br>
-
-          <b style="color:#f92672">MMOD</b>: Finely tuned speed that can be locked in to persist between songs. (sdvx floating hispeed behavior with double tap start/red number when locked in) <br>
+          <b style="color:#f92672">MMOD</b>: Finely tuned speed that can be locked in to persist between songs. (sdvx floating hispeed behavior with double tap start/red number when locked in)<br>
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">Is there a guide on a DIY SDVX Controller?</a>
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          Yes, there's multiple guides on how to build your own SDVX Controller. There's an <a style="color:#f92672" href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/"> SDVX Controller</a> & <a style="color:#f92672" href="https://github.com/speedypotato/Pocket-SDVX"> Pocket SDVX guide</a>.
+          Yes, there's multiple guides on how to build your own SDVX Controller. There's an <a style="color:#f92672" href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/">SDVX Controller</a> & <a style="color:#f92672" href="https://github.com/speedypotato/Pocket-SDVX">Pocket SDVX guide</a>.
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">My Controller has no input. What should I do?</a>
@@ -487,45 +480,32 @@
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">Is there a way to make the Yuancon buttons brighter? It's dim for me.</a>
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-            To make the button lights brighter, you can do so by disconnecting the RGB lights. Another way to do so is to short all the resistors marked "RL," but that may void your warranty.(Works on older cons that had leds with resistors. <b style="color:red">DO NOT ATTEMPT ON NEWER CONS</b>). You can also buy a <a style="color:#f92672" href="https://forms.gle/Suviu7ZxeRGbjV348"><b>Roxy</b></a>.
+          To make the button lights brighter, you can do so by disconnecting the RGB lights. Another way to do so is to short all the resistors marked "RL," but that may void your warranty.(Works on older cons that had leds with resistors. <b style="color:red">DO NOT ATTEMPT ON NEWER CONS</b>). You can also buy a <a style="color:#f92672" href="https://forms.gle/Suviu7ZxeRGbjV348"><b>Roxy</b></a>.
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">Does Yuancon support Linux?</a>
       </div>
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
-          <p>Yuancon doesn't support Linux officially, but it can work on Linux with a few steps. There's three methods currently available. </p>
-
-            <b style="color:#f92672">Method 1</b>:
-            <br>
-            Requirements:
-
-            <ul>
-
-              <li><b style="color:#f92672">Xorg</b> display server</li>
-
-              <li>The controller must be in <b style="color:#f92672">Mode 1</b></li>
-
-            </ul>
-
-            <br>
-
-            <ol><li>Install <code>evdev</code></li>
-
-              <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
-
-                <pre><code>
+          <p>Yuancon doesn't support Linux officially, but it can work on Linux with a few steps. There's three methods currently available.</p><b style="color:#f92672">Method 1</b>:<br>
+          Requirements:
+          <ul>
+            <li><b style="color:#f92672">Xorg</b> display server</li>
+            <li>The controller must be in <b style="color:#f92672">Mode 1</b></li>
+          </ul><br>
+          <ol>
+            <li>Install <code>evdev</code></li>
+            <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
+              <pre><code>
 <!--         -->Section "InputClass"
 <!--         -->    Identifier "Yuancon"
 <!--         -->    MatchProduct "YuanCon YuanCon Mouse"
@@ -533,36 +513,21 @@
 <!--         -->    Driver "evdev"
 <!--         -->EndSection
                 </code></pre>
-              </li>
-
-              <li>Restart the X server or your PC</li>
-              <p class="font-italic">source: <span style="color:#a6e22e">Noa#0407</span> on Discord</p>
-
-            </ol><br>
-
-            <br>
-
-            <b style="color:#f92672">Method 2</b>:
-            <br>
-              Requirements:
-
-              <ul>
-
-                <li><b style="color:#f92672">Xorg</b> display server</li>
-
-                <li>The controller must be in <b style="color:#f92672">Mode 3</b></li>
-
-              </ul>
-
-              <br>
-
-              <ol>
-
-                <li>Install <code>libinput</code></li>
-
-                <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
-
-                  <pre><code>
+            </li>
+            <li>Restart the X server or your PC</li>
+            <p class="font-italic">source: <span style="color:#a6e22e">Noa#0407</span> on Discord</p>
+          </ol><br>
+          <br>
+          <b style="color:#f92672">Method 2</b>:<br>
+          Requirements:
+          <ul>
+            <li><b style="color:#f92672">Xorg</b> display server</li>
+            <li>The controller must be in <b style="color:#f92672">Mode 3</b></li>
+          </ul><br>
+          <ol>
+            <li>Install <code>libinput</code></li>
+            <li>Create a file named <code>10-yuancon.conf</code> in <code>/etc/X11/xorg.conf.d/</code> containing these lines:
+              <pre><code>
 <!--           -->Section "InputClass"
 <!--           -->    Identifier "Yuancon"
 <!--           -->    MatchProduct "YuanCon YuanCon Mouse"
@@ -570,48 +535,30 @@
 <!--           -->    Driver "libinput"
 <!--           -->EndSection
                   </code></pre>
-                </li>
-
-                <li>Restart the X server or your PC</li>
-                <p class="font-italic">source: <span style="color:#a6e22e">Oxystyle#3791</span> on Discord</p>
-
-              </ol><br>
-
-              <br>
-
-              <b style="color:#f92672">Method 3</b>:
-              <br>
-                Requirements:
-
-                <ul>
-
-                  <li>The controller must be in <b style="color:#f92672">Mode 1</b></li>
-
-                </ul>
-
-                <br>
-
-                <ol>
-
-
-                  <li>Create a file named <code>99-yuancon-sdvx.rules</code> in <code>/etc/udev/rules.d/</code> containing these lines:
-
-                    <pre><code>
+            </li>
+            <li>Restart the X server or your PC</li>
+            <p class="font-italic">source: <span style="color:#a6e22e">Oxystyle#3791</span> on Discord</p>
+          </ol><br>
+          <br>
+          <b style="color:#f92672">Method 3</b>:<br>
+          Requirements:
+          <ul>
+            <li>The controller must be in <b style="color:#f92672">Mode 1</b></li>
+          </ul><br>
+          <ol>
+            <li>Create a file named <code>99-yuancon-sdvx.rules</code> in <code>/etc/udev/rules.d/</code> containing these lines:
+              <pre><code>
   <!--           -->    ACTION=="add|change", KERNEL=="event[0-9]*", \
   <!--           -->    ENV{ID_VENDOR_ID}=="51bf", ENV{ID_MODEL_ID}=="2101", \
   <!--           -->    ENV{ID_INPUT_MOUSE}="1"
                     </code></pre>
-                  </li>
-
-                  <li>Afterwards use <code>udevadm control --reload-rules</code> to reload.</li>
-                  <p class="font-italic">source: <span style="color:#a6e22e">clam#9791</span> on Discord</p>
-
-                </ol><br>
-
+            </li>
+            <li>Afterwards use <code>udevadm control --reload-rules</code> to reload.</li>
+            <p class="font-italic">source: <span style="color:#a6e22e">clam#9791</span> on Discord</p>
+          </ol><br>
         </div>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-item-header">
         <a style="color:black">What kind of lubricant do I use for my buttons/knobs?</a>
@@ -623,88 +570,85 @@
       </div>
     </div>
     <div class="accordion-item">
-        <div class="accordion-item-header">
-          <a style="color:black">My USB C connector is loose/broken. What can I do?</a>
-        </div>
-        <div class="accordion-item-body">
-          <div class="accordion-item-body-content">
-            <p>You can try adding more solder if it's loose, or if it's broken, you can solder it back using the video below as a demonstration. If you don't want to take that route, you can also message <b style="color:#f92672">yuan0312#7539</b> on discord for a replacement.</p>
-
-            <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/uguPxmkmaSg?start=70&end=82;?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=green" width="50%" height="315" allowtransparency="true" frameborder="0"></iframe>
-          </div>
+      <div class="accordion-item-header">
+        <a style="color:black">My USB C connector is loose/broken. What can I do?</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <p>You can try adding more solder if it's loose, or if it's broken, you can solder it back using the video below as a demonstration. If you don't want to take that route, you can also message <b style="color:#f92672">yuan0312#7539</b> on discord for a replacement.</p>
+          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
+            <source src="assets/videos/soldering.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-      <div class="accordion-item">
-        <div class="accordion-item-header">
-          <a style="color:black">Is there a replacement PCB for my controller?</a>
-        </div>
-        <div class="accordion-item-body">
-          <div class="accordion-item-body-content">
-            <p>Yes, there is! It's called <a style="color:#f92672" href="https://forms.gle/Suviu7ZxeRGbjV348"><b>Roxy</b></a> and is designed by <b style="color:#f92672">Zoids#8548</b>.</p>
-            <blockquote class="imgur-embed-pub" lang="en" data-id="7xC6Y1a"  ><a href="//imgur.com/7xC6Y1a">Roxy Board by Zoids#8548 </a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <a style="color:black">Is there a replacement PCB for my controller?</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <p>Yes, there is! It's called <a style="color:#f92672" href="https://forms.gle/Suviu7ZxeRGbjV348"><b>Roxy</b></a> and is designed by <b style="color:#f92672">Zoids#8548</b>.</p>
+          <img alt="Roxy" src="https://i.imgur.com/7xC6Y1a.jpeg" width="403" height="250">
         </div>
       </div>
-  </div>
-  <div class="accordion-item">
-    <div class="accordion-item-header">
-      <a style="color:black">Is there any discords I can join?</a>
     </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-        <p>Yes, there's quite a few discords. There's <a style="color:#f92672" href="https://discord.gg/rpWz24Z"><b>K-Shoot Mania</b></a>, <a style="color:#f92672" href="https://discord.gg/fknwz8s"><b>Cons&Stuff</b></a>, and <a style="color:#f92672" href="https://discord.gg/ceCWx3X"><b>Unnamed SDVX Clone</b></a>. If you know of any other discord, please let me know :)</p>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <a style="color:black">Is there any discords I can join?</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <p>Yes, there's quite a few discords. There's <a style="color:#f92672" href="https://discord.gg/rpWz24Z"><b>K-Shoot Mania</b></a>, <a style="color:#f92672" href="https://discord.gg/fknwz8s"><b>Cons&amp;Stuff</b></a>, and <a style="color:#f92672" href="https://discord.gg/ceCWx3X"><b>Unnamed SDVX Clone</b></a>. If you know of any other discord, please let me know :)</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="accordion-item">
-    <div class="accordion-item-header">
-      <a style="color:black">Help! I'm having issues with USC!</a>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <a style="color:black">Help! I'm having issues with USC!</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <p>If you're having any issues with USC check out their FAQ page <a style="color:#f92672" href="https://github.com/Drewol/unnamed-sdvx-clone/wiki/F.-A.-Q."><b>here</b></a>.</p>
+        </div>
+      </div>
     </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-        <p>If you're having any issues with USC check out their FAQ page <a style="color:#f92672" href="https://github.com/Drewol/unnamed-sdvx-clone/wiki/F.-A.-Q."><b>here</b></a>.</p>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <a style="color:black">Where are the songs page pack from, and are they updated?</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <p>SDVX I-II songs pack are taken from <a style="color:#f92672" href="https://github.com/Schinizer/kshootmaniasdvx"><b>here</b></a>, while SDVX III-IV are taken from <a style="color:#f92672" href="https://docs.google.com/spreadsheets/d/1kKqYldFuh-O5uyeAPmQn9oc9iFGz0xqokxqvVxr5bCg/edit#gid=0"><b>K-Shoot Mania Discord</b></a> and their difficulty were updated for VW rerates using <a style="color:#f92672" href="https://cdn.discordapp.com/attachments/210833694901010432/675954104568119306/convert_updater.zip"><b>KshootmaniaDifficultyChanger</b></a>. They also include <a style="color:#f92672" href="https://cdn.discordapp.com/attachments/554218350692270090/644081866596548618/vivid_wave_diff_changes_ksh_replacement.zip"><b>VividWave diff changes KSH replacement</b></a> from the KSM discord server. SDVX V packs are taken from <a style="color:#f92672" href="https://mega.nz/#F!RGBHlC6S!fbm3n3HfFAHGDQdADMgOnQ"><b>here</b></a> and SDVX VI packs from <a style="color:#f92672" href="https://github.com/TedTheRed/exceed-gear-converts/releases"><b>here</b></a> and are from the K-Shoot Mania discord server.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="accordion-item">
-    <div class="accordion-item-header">
-      <a style="color:black">Where are the songs page pack from, and are they updated?</a>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <a style="color:black">How can I get a custom acrylic panel for my Yuancon, and how much does it cost?</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <p>If you'd like a custom acrylic panel, you must first design it and then send it to <b style="color:#f92672">yuan0312#7539</b> on discord. The cost of the custom acrylic panel is $35 at the time of writing. If you would like the SVG file for YuanCon, <a style="color:#f92672" href="https://oniichan.wtf/files/yuan/Yuancon_panel_empty.svg">click here</a>. If you would like the PSD file for YuanCon, <a style="color:#f92672" href="https://oniichan.wtf/files/yuan/yuancon-SDVX2019-RGB-art.psd">click here</a>.</p>
+        </div>
+      </div>
     </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-        <p>SDVX I-II songs pack are taken from <a style="color:#f92672" href="https://github.com/Schinizer/kshootmaniasdvx"><b>here</b></a>, while SDVX III-IV are taken from <a style="color:#f92672" href="https://docs.google.com/spreadsheets/d/1kKqYldFuh-O5uyeAPmQn9oc9iFGz0xqokxqvVxr5bCg/edit#gid=0"><b>K-Shoot Mania Discord</b></a> and their difficulty were updated for VW rerates using <a style="color:#f92672" href="https://cdn.discordapp.com/attachments/210833694901010432/675954104568119306/convert_updater.zip"><b>KshootmaniaDifficultyChanger</b></a>. They also include <a style="color:#f92672" href="https://cdn.discordapp.com/attachments/554218350692270090/644081866596548618/vivid_wave_diff_changes_ksh_replacement.zip"><b>VividWave diff changes KSH replacement</b></a> from the KSM discord server. SDVX V packs are taken from <a style="color:#f92672" href="https://mega.nz/#F!RGBHlC6S!fbm3n3HfFAHGDQdADMgOnQ"><b>here</b></a> and SDVX VI packs from <a style="color:#f92672" href="https://github.com/TedTheRed/exceed-gear-converts/releases"><b>here</b></a> and are from the K-Shoot Mania discord server.</p>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <a style="color:black">I get an error on USC stating, "Could not open selected gamepad."</a>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          Try to unplug any gamepad device you might've and see if it works. If not, then head to the USC directory and open <code>Main.cfg</code>, then look for <code>Controller_DeviceID</code> and set it to <code>0</code>, and that should fix it.
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="accordion-item">
-    <div class="accordion-item-header">
-      <a style="color:black">How can I get a custom acrylic panel for my Yuancon, and how much does it cost? </a>
+    
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/ayaya.js"></script>
+    <script src="assets/js/video.min.js"></script>
     </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-        <p>If you'd like a custom acrylic panel, you must first design it and then send it to <b style="color:#f92672">yuan0312#7539</b> on discord. The cost of the custom acrylic panel is $35 at the time of writing. If you would like the SVG file for YuanCon, <a style="color:#f92672" href="https://oniichan.wtf/files/yuan/Yuancon_panel_empty.svg"><b></b>click here</b></a>. If you would like the PSD file for YuanCon, <a style="color:#f92672" href="https://oniichan.wtf/files/yuan/yuancon-SDVX2019-RGB-art.psd"><b></b>click here</b></a>.</p>
-    </div>
-  </div>
-</div>
-<div class="accordion-item">
-    <div class="accordion-item-header">
-      <a style="color:black">I get an error on USC stating, "Could not open selected gamepad."</a>
-    </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-        Try to unplug any gamepad device you might've and see if it works. If not, then head to the USC directory and open <code>Main.cfg</code>, then look for <code>Controller_DeviceID</code> and set it to <code>0</code>, and that should fix it.
-    </div>
-  </div>
-</div>
-
-  <!-- Scripts -->
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/jquery.slimscroll.js"></script>
-  <script src="assets/js/waves.min.js"></script>
-  <script src="assets/js/ayaya.js"></script>
-</body>
-
+  </body>
 </html>
