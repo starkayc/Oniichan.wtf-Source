@@ -1,0 +1,123 @@
+/*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: @heyPablete
+
+ */
+
+ @charset "UTF-8";
+ @import url(https://fonts.googleapis.com/css?family=Open + Sans:300, 400, 700);
+ 
+ body {
+   font-family: "Open Sans", sans-serif;
+   font-weight: 300;
+   line-height: 1.42em;
+   color: #a7a1ae;
+   background-color: #1f2739;
+ }
+ 
+ .blue {
+   color: #185875;
+ }
+ .yellow {
+   color: #fff842;
+ }
+ 
+ .container th h1 {
+   font-weight: bold;
+   font-size: 1em;
+   text-align: left;
+   color: #a7a1ae;
+ }
+ 
+ .container td {
+   font-weight: normal;
+   font-size: 1em;
+ }
+ 
+ .container {
+   text-align: left;
+   overflow: hidden;
+   width: 80%;
+   margin: 0 auto;
+   display: table;
+   padding: 0 0 8em 0;
+ }
+ 
+ .container td,
+ .container th {
+   padding-bottom: 2%;
+   padding-top: 2%;
+   padding-left: 2%;
+ }
+ 
+ /* Background-color of the odd rows */
+ .container tr:nth-child(odd) {
+   background-color: #323c50;
+ }
+ 
+ /* Background-color of the even rows */
+ .container tr:nth-child(even) {
+   background-color: #2c3446;
+ }
+ 
+ .container th {
+   background-color: #1f2739;
+ }
+
+
+ .accordion {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.accordion-item {
+  background-color: #fff;
+  color: #111;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.25);
+}
+.accordion-item-header {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.accordion-item-header::after {
+  content: "\002B";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+}
+.accordion-item-header.active::after {
+  content: "\2212";
+}
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-item-body-content {
+  padding: 1rem;
+  line-height: 1.5rem;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+}
+
+@media(max-width:767px) {
+  html {
+    font-size: 14px;
+  }
+ 
+@media (max-width: 800px) {
+  .container td:nth-child(4),
+  .container th:nth-child(4) {
+    display: none;
+  }
+}
+}
