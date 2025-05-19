@@ -1,166 +1,156 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-
-  <title>Skins</title>
-  <meta charset="utf-8">
-  <meta property="og:description" content="Skins for Unnamed SDVX Clone." />
-  <meta content="Skins for Unnamed SDVX Clone." name="description">
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:type" content="website" />
-
-  <!-- CSS -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/monokai.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/video-js.min.css" rel="stylesheet">
-
-  <!-- Umami Analytics -->
-  <script defer src="https://dashboard.starkayc.moe/script.js" data-website-id="5d5d43a7-8d45-48e2-b034-0aa1337fd6dc"></script>
-</head>
-
-<body>
-  <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-    <img class="navbar-brand" alt="favicon" src="assets/images/favicon.png">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="fa fa-home fa-fw"></i>
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="songs.html">
-            <i class="fa fa-music fa-fw"></i>
-            Songs
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="skins.html">
-            <i class="fa fa-paint-brush"></i>
-            Skins
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://github.com/starkayc/Oniichan.wtf-Source">
-              <i class="fa fa-code"></i>
-              Source
-            </a>
-          </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-4">
-        <!-- Nightfall Skin -->
-        <div class="card">
-          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
-            <source src="assets/videos/skins/Nightfall.mp4" type="video/mp4">
-          </video>
-          <div class="card-body">
-            <center>
-            <h4 class="card-title font-16 mt-0">Nightfall</h4>
-            </center>
-
-            <center>
-            <h6 class="card-subtitle font-14 text-muted">Creator: <a href="https://github.com/Hoshikara">hoshikara</a></h6>
-            </center><br>
-            <a href="https://github.com/Hoshikara/Nightfall"><button type="button" class="btn btn-primary btn-block waves-effect waves-light">Download</button></a>
-          </div>
+<html lang="en">
+  <head>
+    <!-- Umami Analytics -->
+    <script defer src="https://dashboard.starkayc.moe/script.js" data-website-id="5d5d43a7-8d45-48e2-b034-0aa1337fd6dc"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Theme Color for mobile browsers -->
+    <meta name="theme-color" content="#1f2937">
+    <!-- SEO Title -->
+    <title>Skins Collection</title>
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Download various skins for the Unnamed SDVX Clone, including popular and custom designs.">
+    <!-- Open Graph (for social media) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Skins Collection for Unnamed SDVX Clone | Oniichan.wtf">
+    <meta property="og:description" content="Explore and download skins for the Unnamed SDVX Clone.">
+    <meta property="og:image" content="assets/images/favicon.png">
+    <meta property="og:url" content="https://oniichan.wtf/skins.html">
+    <!-- Canonical URL to prevent duplicate‐content issues -->
+    <link rel="canonical" href="https://oniichan.wtf/skins.html">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Skins Collection for Unnamed SDVX Clone | Oniichan.wtf">
+    <meta name="twitter:description" content="Explore and download skins for the Unnamed SDVX Clone.">
+    <meta name="twitter:image" content="assets/images/favicon.png">
+    <!-- Favicon (ICO fallback) -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Favicon (Modern PNG) -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Video.js CSS & JS -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <!-- Google Font for IBM Plex Sans -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
+    </noscript>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"IBM Plex Sans"', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <img src="assets/images/favicon.png" alt="Oniichan.wtf Logo" class="h-8 w-8">
+        <!-- Navbar Links -->
+        <div class="space-x-4 text-sm flex">
+          <a href="index.html" class="text-gray-300 hover:text-gray-100">
+            <i class="fas fa-home"></i> Home </a>
+          <a href="songs.html" class="text-gray-300 hover:text-gray-100">
+            <i class="fas fa-music"></i> Songs </a>
+          <a href="skins.html" class="text-blue-400 font-semibold">
+            <i class="fas fa-paint-brush"></i> Skins </a>
+          <a href="https://github.com/starkayc/Oniichan.wtf-Source" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-gray-100">
+            <i class="fas fa-code"></i> Source </a>
         </div>
       </div>
-      
-      <div class="col-lg-4">
-        <!-- LucidWave Skin -->
-        <div class="card">
-          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
-            <source src="assets/videos/skins/LucidWave.mp4" type="video/mp4">
-          </video>
-          <div class="card-body">
-            <center>
-            <h4 class="card-title font-16 mt-0">LucidWave</h4>
-            </center>
-
-            <center>
-            <h6 class="card-subtitle font-14 text-muted">Creator: <a href="https://github.com/Hoshikara">hoshikara</a></h6>
-            </center><br>
-            <a href="https://github.com/Hoshikara/LucidWave"><button type="button" class="btn btn-primary btn-block waves-effect waves-light">Download</button></a>
+    </nav>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <!-- Nightfall -->
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div class="w-full h-48 bg-black">
+            <video controls class="video-js vjs-big-play-centered w-full h-full object-cover" data-setup='{}'>
+              <source src="assets/videos/skins/nightfall.mp4?v=1.5.9" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-center mb-4">Nightfall</h3>
+            <p class="text-center text-sm text-gray-400">
+              <span class="font-bold text-white">Creator:</span>
+              <a href="https://github.com/Hoshikara" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">hoshikara</a>
+            </p>
+            <a href="https://github.com/Hoshikara/Nightfall/archive/refs/heads/main.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4" data-umami-event="Download Skins">Download</a>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-4">
-        <!-- LiqidWave Skin -->
-        <div class="card">
-          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
-            <source src="assets/videos/skins/LiqidWave.mp4" type="video/mp4">
-          </video>
-          <div class="card-body">
-            <center>
-            <h4 class="card-title font-16 mt-0">LiqidWave</h4>
-            </center>
-
-            <center>
-            <h6 class="card-subtitle font-14 text-muted">Creator: dreamy_ouchaco</h6>
-            </center><br>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/skins/LiqidWave-1.5.0-memory-leak-fix.zip"><button type="button" class="btn btn-primary btn-block waves-effect waves-light">Download</button></a>
+        <!-- LucidWave -->
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div class="w-full h-48 bg-black">
+            <video controls class="video-js vjs-big-play-centered w-full h-full object-cover" data-setup='{}'>
+              <source src="assets/videos/skins/lucidwave.mp4" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-center mb-4">LucidWave</h3>
+            <p class="text-center text-sm text-gray-400">
+              <span class="font-bold text-white">Creator:</span>
+              <a href="https://github.com/Hoshikara" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">hoshikara</a>
+            </p>
+            <a href="https://github.com/Hoshikara/LucidWave/archive/refs/heads/master.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4" data-umami-event="Download Skins">Download</a>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-4">
-        <!-- Heavenly Express Skin -->
-        <div class="card">
-          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
-            <source src="assets/videos/skins/HeavenlyExpress.mp4" type="video/mp4">
-          </video>
-          <div class="card-body">
-            <center>
-            <h4 class="card-title font-16 mt-0">Heavenly Express</h4>
-            </center>
-
-            <center>
-            <h6 class="card-subtitle font-14 text-muted">Creator: dreamy_ouchaco</h6>
-            </center><br>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/skins/HeavenlyExpress-1.3.0.zip"><button type="button" class="btn btn-primary btn-block waves-effect waves-light">Download</button></a>
+        <!-- LiqidWave -->
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div class="w-full h-48 bg-black">
+            <video controls class="video-js vjs-big-play-centered w-full h-full object-cover" data-setup='{}'>
+              <source src="assets/videos/skins/liqidwave.mp4?v=1.5.0" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-center mb-4">LiqidWave</h3>
+            <p class="text-center text-sm text-gray-400">
+              <span class="font-bold text-white">Creator:</span> dreamy_ouchaco
+            </p>
+            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/skins/LiqidWave-1.5.0-memory-leak-fix.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4" data-umami-event="Download Skins">Download</a>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-4">
-        <!-- ExperimentalGear Skin -->
-        <div class="card">
-          <video controls class="video-js vjs-big-play-centered" data-setup='{"width": 403, "height": 195}'>
-            <source src="assets/videos/skins/ExperimentalGear.mp4" type="video/mp4">
-          </video>
-          <div class="card-body">
-            <center>
-            <h4 class="card-title font-16 mt-0">ExperimentalGear</h4>
-            </center>
-
-            <center>
-            <h6 class="card-subtitle font-14 text-muted">Creator: <a href="https://discord.gg/KNgeqSdSWs">ExperimentalGear Dev Team</a></h6>
-            </center><br>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/skins/ExperimentalGear-0.2.3.zip"><button type="button" class="btn btn-primary btn-block waves-effect waves-light">Download</button></a>
+        <!-- Heavenly Express -->
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div class="w-full h-48 bg-black">
+            <video controls class="video-js vjs-big-play-centered w-full h-full object-cover" data-setup='{}'>
+              <source src="assets/videos/skins/heavenlyexpress.mp4?v=1.3.0" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-center mb-4">Heavenly Express</h3>
+            <p class="text-center text-sm text-gray-400">
+              <span class="font-bold text-white">Creator:</span> dreamy_ouchaco
+            </p>
+            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/skins/HeavenlyExpress-1.3.0.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4" data-umami-event="Download Skins">Download</a>
           </div>
         </div>
-      </div>
-
-      <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/js/video.min.js"></script>
+        <!-- ExperimentalGear -->
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div class="w-full h-48 bg-black">
+            <video controls class="video-js vjs-big-play-centered w-full h-full object-cover" data-setup='{}'>
+              <source src="assets/videos/skins/experimentalgear.mp4?v=0.2.3" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-center mb-4">ExperimentalGear</h3>
+            <p class="text-center text-sm text-gray-400">
+              <span class="font-bold text-white">Creator:</span>
+              <a href="https://discord.gg/KNgeqSdSWs" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">ExperimentalGear Dev Team</a>
+            </p>
+            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/skins/ExperimentalGear-0.2.3.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4" data-umami-event="Download Skins">Download</a>
+          </div>
+        </div>
       </div>
     </div>
   </body>
