@@ -1,0 +1,52 @@
+{
+  "name": "Oniichan.wtf - SDVX & Yuancon FAQ Guide",
+  "short_name": "Oniichan.wtf",
+  "description": "Comprehensive guide for Sound Voltex (SDVX) and Yuancon controller users",
+  "start_url": "/help/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/help/assets/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/help/assets/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "music", "games", "education"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/help/",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Home & FAQs",
+      "short_name": "Home",
+      "description": "View controller information and FAQs",
+      "url": "/help/",
+      "icons": [{ "src": "/help/assets/images/favicon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Skins Collection",
+      "short_name": "Skins",
+      "description": "Browse and download skins",
+      "url": "/help/skins.html",
+      "icons": [{ "src": "/help/assets/images/favicon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Songs Database",
+      "short_name": "Songs",
+      "description": "Download SDVX song packs",
+      "url": "/help/songs.html",
+      "icons": [{ "src": "/help/assets/images/favicon.png", "sizes": "192x192" }]
+    }
+  ]
+}

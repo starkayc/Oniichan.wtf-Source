@@ -1,40 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Umami Analytics -->
-    <script defer src="https://dashboard.starkayc.moe/script.js" data-website-id="07407566-4575-46cc-a32b-398d5ca55db1"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      defer
+      src="https://dashboard.starkayc.moe/script.js"
+      data-website-id="07407566-4575-46cc-a32b-398d5ca55db1"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Performance & Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
     <!-- Theme Color for mobile browsers -->
-    <meta name="theme-color" content="#1f2937">
+    <meta name="theme-color" content="#0d1117" />
     <!-- SEO Title -->
-    <title>Songs Collection</title>
+    <title>Songs Collection | Oniichan.wtf</title>
     <!-- Meta Description for SEO -->
-    <meta name="description" content="Download various SDVX data packs for KSM and USC.">
+    <meta name="description" content="Download various SDVX data packs for KSM and USC." />
     <!-- Open Graph (for social media) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Songs Collection for KSM & USC | Oniichan.wtf">
-    <meta property="og:description" content="Explore and download SDVX data packs for KSM and USC.">
-    <meta property="og:image" content="assets/images/favicon.png">
-    <meta property="og:url" content="https://oniichan.wtf/songs.html">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Songs Collection for KSM & USC | Oniichan.wtf" />
+    <meta
+      property="og:description"
+      content="Explore and download SDVX data packs for KSM and USC."
+    />
+    <meta property="og:image" content="assets/images/favicon.png" />
+    <meta property="og:url" content="https://oniichan.wtf/help/songs.html" />
     <!-- Canonical URL to prevent duplicate‐content issues -->
-    <link rel="canonical" href="https://oniichan.wtf/songs.html">
+    <link rel="canonical" href="https://oniichan.wtf/help/songs.html" />
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Songs Collection for KSM & USC | Oniichan.wtf">
-    <meta name="twitter:description" content="Explore and download SDVX data packs for KSM and USC.">
-    <meta name="twitter:image" content="assets/images/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Songs Collection for KSM & USC | Oniichan.wtf" />
+    <meta
+      name="twitter:description"
+      content="Explore and download SDVX data packs for KSM and USC."
+    />
+    <meta name="twitter:image" content="assets/images/favicon.png" />
     <!-- Favicon (ICO fallback) -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <!-- Favicon (Modern PNG) -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Oniichan.wtf" />
     <!-- Font Awesome -->
-    <link href="./assets/css/font-awesome-7.1.0-all.min.css" rel="stylesheet">
-    <!-- Google Font for IBM Plex Sans -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
-    </noscript>
+    <link href="./assets/css/font-awesome-7.1.0-all.min.css" rel="stylesheet" />
+    <!-- IBM Plex Sans Font (Local) -->
+    <link href="./assets/fonts/ibm-plex-sans.css" rel="stylesheet" />
+    <!-- Global Styles & Optimizations -->
+    <link href="./assets/css/global-styles.css" rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="./assets/js/tailwindcss-3.4.17.js"></script>
     <script>
@@ -42,28 +60,49 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['"IBM Plex Sans"', 'sans-serif'],
+              sans: [
+                '"IBM Plex Sans"',
+                "-apple-system",
+                "BlinkMacSystemFont",
+                '"Segoe UI"',
+                "Roboto",
+                "sans-serif",
+              ],
             },
-          }
-        }
-      }
+            screens: {
+              xs: "475px",
+            },
+          },
+        },
+      };
     </script>
+    <!-- Modern Design System (loaded after Tailwind to win the cascade) -->
+    <link href="./assets/css/design-modern.css" rel="stylesheet" />
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="bg-gray-900 text-white font-sans">
     <!-- Navbar -->
     <nav class="bg-gray-900 p-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <img src="assets/images/favicon.png" alt="Oniichan.wtf Logo" class="h-8 w-8">
+        <img src="assets/images/favicon.png" alt="Oniichan.wtf Logo" class="h-8 w-8" />
         <!-- Navbar Links -->
         <div class="space-x-4 text-sm flex">
           <a href="index.html" class="text-gray-300 hover:text-gray-100">
-            <i class="fas fa-home"></i> Home </a>
+            <i class="fas fa-home"></i> Home
+          </a>
           <a href="songs.html" class="text-blue-400 font-semibold">
-            <i class="fas fa-music"></i> Songs </a>
+            <i class="fas fa-music"></i> Songs
+          </a>
           <a href="skins.html" class="text-gray-300 hover:text-gray-100">
-            <i class="fas fa-paint-brush"></i> Skins </a>
-          <a href="https://github.com/starkayc/Oniichan.wtf-Source" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-gray-100">
-            <i class="fab fa-github"></i> Source </a>
+            <i class="fas fa-paint-brush"></i> Skins
+          </a>
+          <a
+            href="https://github.com/starkayc/Oniichan.wtf-Source"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-300 hover:text-gray-100"
+          >
+            <i class="fab fa-github"></i> Source
+          </a>
         </div>
       </div>
     </nav>
@@ -73,107 +112,288 @@
         <!-- SDVX I BOOTH -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx1.webp" alt="SDVX I BOOTH Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx1.webp"
+              alt="SDVX I BOOTH Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX I BOOTH</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX1.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/q6QjSSAT#sv-9EAaa7x-xGbthbnTFwuxuUpCYc345YfmoF9KCccI" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/3yip531dcr3w1qp/SDVX1.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX1.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/q6QjSSAT#sv-9EAaa7x-xGbthbnTFwuxuUpCYc345YfmoF9KCccI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/3yip531dcr3w1qp/SDVX1.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX1 MD5sum: 63633B47E179F2A49C5F0F1541AA06D7 -->
           </div>
         </div>
         <!-- SDVX II INFINITE INFECTION -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx2.webp" alt="SDVX II INFINITE INFECTION Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx2.webp"
+              alt="SDVX II INFINITE INFECTION Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX II INFINITE INFECTION</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX2.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/b6QhBCQK#vOIKH17dYYuN9LaChEH_-J_wXgLQb3IE2EbsHy7gWUE" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/aayxzqq48zed6se/SDVX2.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX2.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/b6QhBCQK#vOIKH17dYYuN9LaChEH_-J_wXgLQb3IE2EbsHy7gWUE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/aayxzqq48zed6se/SDVX2.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX2 MD5sum: 60852BBC5A3B95186C9D6F7CF9B2F63C -->
           </div>
         </div>
         <!-- SDVX III GRAVITY WARS -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx3.webp" alt="SDVX III GRAVITY WARS Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx3.webp"
+              alt="SDVX III GRAVITY WARS Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX III GRAVITY WARS</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX3.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/TzRHgaDI#K5isXQQ6VhtmP1hHiDhj2eiEuln1-oqU3aF7-WT4gMo" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/ytnqo45grjxkn5a/SDVX3.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX3.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/TzRHgaDI#K5isXQQ6VhtmP1hHiDhj2eiEuln1-oqU3aF7-WT4gMo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/ytnqo45grjxkn5a/SDVX3.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX3 MD5sum: 9B1AA1579D26A21E537890F170EEB03D -->
           </div>
         </div>
         <!-- SDVX IV HEAVENLY HAVEN -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx4.webp" alt="SDVX IV HEAVENLY HAVEN Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx4.webp"
+              alt="SDVX IV HEAVENLY HAVEN Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX IV HEAVENLY HAVEN</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX4.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/WqZjlIJR#B779svbbpTUyHFo6vOKG5TjeYtUbHEcikPE9kL1vwTg" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/m6mvb22m3nisehg/SDVX4.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX4.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/WqZjlIJR#B779svbbpTUyHFo6vOKG5TjeYtUbHEcikPE9kL1vwTg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/m6mvb22m3nisehg/SDVX4.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX4 MD5sum: FF8FEC60549A4C202F5E8C83FE0B47EF -->
           </div>
         </div>
         <!-- SDVX V VIVID WAVE -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx5.webp" alt="SDVX V VIVID WAVE Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx5.webp"
+              alt="SDVX V VIVID WAVE Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX V VIVID WAVE</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX5.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/DMJQQASD#Drk9hJfx0mWH8HdloCwbfEva6UHFoeu_Pjk-BY9HtTQ" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/d9xf0utx1w96onp/SDVX5.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX5.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/DMJQQASD#Drk9hJfx0mWH8HdloCwbfEva6UHFoeu_Pjk-BY9HtTQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/d9xf0utx1w96onp/SDVX5.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX5 MD5sum: 96BA27F7AEA293A1EFCE8AF3D7F5E414 -->
           </div>
         </div>
         <!-- SDVX VI EXCEED GEAR -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx6.webp" alt="SDVX VI EXCEED GEAR Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx6.webp"
+              alt="SDVX VI EXCEED GEAR Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX VI EXCEED GEAR</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX6-FEB21-2026.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/oMkQ1ZTL#Mi8khhrcD9IagKvisSt2ZQMLAElbaLVodwaPTS9hMAY" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/qjq4ebg0ewzb49h/SDVX6-FEB21-2026.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX6-FEB21-2026.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/oMkQ1ZTL#Mi8khhrcD9IagKvisSt2ZQMLAElbaLVodwaPTS9hMAY"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/qjq4ebg0ewzb49h/SDVX6-FEB21-2026.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX6 MD5sum: 20B9E97FB496BE8D1C65FBCAD6AF7855 -->
           </div>
         </div>
         <!-- SDVX 1-5 Pack -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx1-5.webp" alt="SDVX 1-5 Pack Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx1-5.webp"
+              alt="SDVX 1-5 Pack Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">SDVX 1-5 Pack</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX1-5.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/hoYFxRhI#nt5kUJ2bzcfWFQORcVHdi0Gl6JK91MZcO4lsXHerlPw" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/SDVX1-5.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/hoYFxRhI#nt5kUJ2bzcfWFQORcVHdi0Gl6JK91MZcO4lsXHerlPw"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
             <!-- SDVX1-5 MD5sum: F90E202A4C9759F2EA12E2844662E373 -->
           </div>
         </div>
         <!-- Non-Chart SDVX 1-5 Pack -->
         <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div class="w-full h-40 bg-black flex items-center justify-center">
-            <img src="assets/images/sdvx1-5.webp" alt="Non-Chart SDVX 1-5 Pack Logo" class="max-h-full max-w-full object-contain">
+            <img
+              src="assets/images/sdvx1-5.webp"
+              alt="Non-Chart SDVX 1-5 Pack Logo"
+              class="max-h-full max-w-full object-contain"
+            />
           </div>
           <div class="p-4">
             <h3 class="text-lg font-bold text-center mb-4">Non-Chart SDVX 1-5 Pack</h3>
-            <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/data/SDVX1-5.zip" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">Download</a>
-            <a href="https://mega.nz/file/zEB0yAjQ#_n76ybMmaUiHA8eZEF1Xns6awnv-BDqEpLPtZICXdWg" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2" data-umami-event="Download Songs">MEGA</a>
-            <a href="https://www.mediafire.com/file/lr4rvrcm7o9bmxp/SDVX1-5.zip/file" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2" data-umami-event="Download Songs">Mediafire</a>
+            <a
+              href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/song/data/SDVX1-5.zip"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >Download</a
+            >
+            <a
+              href="https://mega.nz/file/zEB0yAjQ#_n76ybMmaUiHA8eZEF1Xns6awnv-BDqEpLPtZICXdWg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mb-2"
+              data-umami-event="Download Songs"
+              >MEGA</a
+            >
+            <a
+              href="https://www.mediafire.com/file/lr4rvrcm7o9bmxp/SDVX1-5.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2"
+              data-umami-event="Download Songs"
+              >Mediafire</a
+            >
             <!-- SDVX1-5D MD5sum: 9E45898DBC5B180561AA164757C1175D -->
           </div>
         </div>
       </div>
     </div>
+    <!-- Enhanced Navigation -->
+    <script src="./assets/js/navigation.js"></script>
+    <!-- Service Worker Registration -->
+    <script src="./assets/js/sw-register.js"></script>
   </body>
 </html>

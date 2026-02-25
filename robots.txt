@@ -1,0 +1,7 @@
+# robots.txt for Oniichan.wtf
+# https://www.robotstxt.org
+
+User-agent: *
+Allow: /
+
+Sitemap: https://oniichan.wtf/sitemap.xml

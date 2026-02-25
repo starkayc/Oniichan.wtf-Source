@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ritwickdey.LiveServer",
+    "streetsidesoftware.code-spell-checker",
+    "HTMLHint.vscode-htmlhint"
+  ]
+}

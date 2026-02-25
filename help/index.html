@@ -1,43 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Umami Analytics -->
-    <script defer src="https://dashboard.starkayc.moe/script.js" data-website-id="07407566-4575-46cc-a32b-398d5ca55db1"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      defer
+      src="https://dashboard.starkayc.moe/script.js"
+      data-website-id="07407566-4575-46cc-a32b-398d5ca55db1"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Performance & Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
     <!-- Theme Color for mobile browsers -->
-    <meta name="theme-color" content="#1f2937">
+    <meta name="theme-color" content="#0d1117" />
     <!-- SEO Title -->
-    <title>Home</title>
+    <title>Home | Oniichan.wtf</title>
     <!-- Meta Description for SEO -->
-    <meta name="description" content="StarKayC's guide on frequently asked questions for SDVX & Yuancon.">
+    <meta
+      name="description"
+      content="StarKayC's guide on frequently asked questions for SDVX & Yuancon."
+    />
     <!-- Open Graph (for social media) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="StarKayC’s Yuancon & SDVX FAQ Guide">
-    <meta property="og:description" content="StarKayC's guide on frequently asked questions for SDVX & Yuancon.">
-    <meta property="og:image" content="assets/images/favicon.png">
-    <meta property="og:url" content="https://oniichan.wtf/index.html">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="StarKayC’s Yuancon & SDVX FAQ Guide" />
+    <meta
+      property="og:description"
+      content="StarKayC's guide on frequently asked questions for SDVX & Yuancon."
+    />
+    <meta property="og:image" content="assets/images/favicon.png" />
+    <meta property="og:url" content="https://oniichan.wtf/help/" />
     <!-- Canonical URL to prevent duplicate‐content issues -->
-    <link rel="canonical" href="https://oniichan.wtf/index.html">
+    <link rel="canonical" href="https://oniichan.wtf/help/" />
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="StarKayC’s Yuancon & SDVX FAQ Guide">
-    <meta name="twitter:description" content="StarKayC's guide on frequently asked questions for SDVX & Yuancon.">
-    <meta name="twitter:image" content="assets/images/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="StarKayC’s Yuancon & SDVX FAQ Guide" />
+    <meta
+      name="twitter:description"
+      content="StarKayC's guide on frequently asked questions for SDVX & Yuancon."
+    />
+    <meta name="twitter:image" content="assets/images/favicon.png" />
     <!-- Favicon (ICO fallback) -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <!-- Favicon (Modern PNG) -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Oniichan.wtf" />
     <!-- Font Awesome -->
-    <link href="./assets/css/font-awesome-7.1.0-all.min.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome-7.1.0-all.min.css" rel="stylesheet" />
     <!-- Video.js CSS & JS -->
     <link href="./assets/css/video-js-8.10.0.css" rel="stylesheet" />
     <script src="./assets/js/video-8.10.0.min.js"></script>
-    <!-- Google Font for IBM Plex Sans -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
-    </noscript>
+    <!-- IBM Plex Sans Font (Local) -->
+    <link href="./assets/fonts/ibm-plex-sans.css" rel="stylesheet" />
+    <!-- Global Styles & Optimizations -->
+    <link href="./assets/css/global-styles.css" rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="./assets/js/tailwindcss-3.4.17.js"></script>
     <script>
@@ -45,37 +66,50 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['"IBM Plex Sans"', 'sans-serif'],
+              sans: [
+                '"IBM Plex Sans"',
+                "-apple-system",
+                "BlinkMacSystemFont",
+                '"Segoe UI"',
+                "Roboto",
+                "sans-serif",
+              ],
             },
-          }
-        }
-      }
+            screens: {
+              xs: "475px",
+            },
+          },
+        },
+      };
     </script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      .faq-answer {
-        transition: max-height 0.3s ease-in-out;
-      }
-    </style>
+    <!-- Modern Design System (loaded after Tailwind to win the cascade) -->
+    <link href="./assets/css/design-modern.css" rel="stylesheet" />
   </head>
   <body class="bg-gray-900 text-white font-sans">
     <!-- Navbar -->
     <nav class="bg-gray-900 p-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <img src="assets/images/favicon.png" alt="Oniichan.wtf Logo" class="h-8 w-8">
+        <img src="assets/images/favicon.png" alt="Oniichan.wtf Logo" class="h-8 w-8" />
         <!-- Navbar Links -->
         <div class="space-x-4 text-sm flex">
           <a href="index.html" class="text-blue-400 font-semibold">
-            <i class="fas fa-home"></i> Home </a>
+            <i class="fas fa-home"></i> Home
+          </a>
           <a href="songs.html" class="text-gray-300 hover:text-gray-100">
-            <i class="fas fa-music"></i> Songs </a>
+            <i class="fas fa-music"></i> Songs
+          </a>
           <a href="skins.html" class="text-gray-300 hover:text-gray-100">
-            <i class="fas fa-paint-brush"></i> Skins </a>
-          <a href="https://github.com/starkayc/Oniichan.wtf-Source" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-gray-100">
-            <i class="fab fa-github"></i> Source </a>
+            <i class="fas fa-paint-brush"></i> Skins
+          </a>
+          <a
+            href="https://github.com/starkayc/Oniichan.wtf-Source"
+            target="_blank"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-300 hover:text-gray-100"
+          >
+            <i class="fab fa-github"></i> Source
+          </a>
         </div>
       </div>
     </nav>
@@ -117,13 +151,13 @@
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700">Button Size</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <span class="font-semibold">START:</span> 33×33mm <br>
-                <span class="font-semibold">BT:</span> 60×60mm <br>
+                <span class="font-semibold">START:</span> 33×33mm <br />
+                <span class="font-semibold">BT:</span> 60×60mm <br />
                 <span class="font-semibold">FX:</span> 50×33mm
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <span class="font-semibold">START:</span> 33×33mm <br>
-                <span class="font-semibold">BT:</span> 60×60mm <br>
+                <span class="font-semibold">START:</span> 33×33mm <br />
+                <span class="font-semibold">BT:</span> 60×60mm <br />
                 <span class="font-semibold">FX:</span> 50×33mm
               </td>
             </tr>
@@ -134,9 +168,7 @@
             </tr>
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3">Switches</td>
-              <td class="px-4 py-3">
-                <span class="font-semibold">0.25N</span> (Omron VX-5-1A2)
-              </td>
+              <td class="px-4 py-3"><span class="font-semibold">0.25N</span> (Omron VX-5-1A2)</td>
               <td class="px-4 py-3">
                 <span class="font-semibold">0.49N</span> (Omron D2MV-01-1C3)
               </td>
@@ -193,79 +225,236 @@
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700 font-semibold">Start Button</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://www.aliexpress.com/item/2251832871170004.html" class="text-blue-400 hover:underline" target="_blank">Buy Start Buttons</a>
+                <a
+                  href="https://www.aliexpress.com/item/2251832871170004.html"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy Start Buttons</a
+                >
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_016/" class="text-blue-400 hover:underline" target="_blank">Buy Start Buttons</a>
+                <a
+                  href="https://www.us.istmall.co.kr/Product/Detail/view/pid/772"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy Start Buttons</a
+                >
               </td>
             </tr>
             <!-- BT Buttons Row -->
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700 font-semibold">BT Buttons</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://www.aliexpress.com/item/33043452010.html" class="text-blue-400 hover:underline" target="_blank">Buy BT Buttons</a>
+                <a
+                  href="https://www.aliexpress.com/item/33043452010.html"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy BT Buttons</a
+                >
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_080/" class="text-blue-400 hover:underline" target="_blank">Buy BT Buttons</a>
+                <a
+                  href="https://www.us.istmall.co.kr/Product/Detail/view/pid/48"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy BT Buttons</a
+                >
               </td>
             </tr>
             <!-- FX Button Row -->
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700 font-semibold">FX Button</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://www.aliexpress.com/item/2251832872358179.html" class="text-blue-400 hover:underline" target="_blank">Buy FX Buttons</a>
+                <a
+                  href="https://www.aliexpress.com/item/2251832872358179.html"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy FX Buttons</a
+                >
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_098/" class="text-blue-400 hover:underline" target="_blank">Buy FX Buttons</a>
+                <a
+                  href="https://www.us.istmall.co.kr/Product/Detail/view/pid/39"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy FX Buttons</a
+                >
               </td>
             </tr>
             <!-- Springs Row -->
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700 font-semibold">Springs</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://bluespringexpress.net/en-us/collections/all/products/20g-springs-x10" class="text-blue-400 hover:underline" target="_blank">Buy 20g</a> | <a href="https://bluespringexpress.net/en-us/collections/all/products/40g-springs-x10" class="text-blue-400 hover:underline" target="_blank">Buy 40g</a> | <a href="https://bluespringexpress.net/en-us/collections/all/products/60g-springs-x10" class="text-blue-400 hover:underline" target="_blank">Buy 60g</a>
+                <a
+                  href="https://bluespringexpress.net/en-us/collections/all/products/20g-springs-x10"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 20g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/collections/all/products/40g-springs-x10"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 40g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/collections/all/products/60g-springs-x10"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 60g</a
+                >
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://bluespringexpress.net/en-us/collections/all/products/20g-springs-x10" class="text-blue-400 hover:underline" target="_blank">Buy 20g</a> | <a href="https://bluespringexpress.net/en-us/collections/all/products/40g-springs-x10" class="text-blue-400 hover:underline" target="_blank">Buy 40g</a> | <a href="https://bluespringexpress.net/en-us/collections/all/products/60g-springs-x10" class="text-blue-400 hover:underline" target="_blank">Buy 60g</a>
+                <a
+                  href="https://bluespringexpress.net/en-us/collections/all/products/20g-springs-x10"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 20g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/collections/all/products/40g-springs-x10"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 40g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/collections/all/products/60g-springs-x10"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 60g</a
+                >
               </td>
             </tr>
             <!-- Switches Row -->
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700 font-semibold">Switches</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_222/" class="text-blue-400 hover:underline" target="_blank">Buy 25g</a> | <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_350/" class="text-blue-400 hover:underline" target="_blank">Buy 50g</a> | <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_215/" class="text-blue-400 hover:underline" target="_blank">Buy 100g</a>
+                <a
+                  href="https://bluespringexpress.net/en-us/products/25g-omron-micro-switch-d2mv-01-1c2"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 25g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/products/50g-omron-micro-switch-d2mv-01-1c3"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 50g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/products/100g-switch"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 100g</a
+                >
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_222/" class="text-blue-400 hover:underline" target="_blank">Buy 25g</a> | <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_350/" class="text-blue-400 hover:underline" target="_blank">Buy 50g</a> | <a href="https://item.rakuten.co.jp/sanwadenshi/ilumb_215/" class="text-blue-400 hover:underline" target="_blank">Buy 100g</a>
+                <a
+                  href="https://bluespringexpress.net/en-us/products/25g-omron-micro-switch-d2mv-01-1c2"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 25g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/products/50g-omron-micro-switch-d2mv-01-1c3"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 50g</a
+                >
+                |
+                <a
+                  href="https://bluespringexpress.net/en-us/products/100g-switch"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy 100g</a
+                >
               </td>
             </tr>
             <!-- LED Row -->
             <tr class="bg-gray-900 hover:bg-gray-800">
               <td class="px-4 py-3 border-b border-gray-700 font-semibold">LED (Wedge Clear)</td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://www.cometpinball.com/products/2smd-bulbs" class="text-blue-400 hover:underline" target="_blank">Buy LED</a>
+                <a
+                  href="https://www.cometpinball.com/products/2smd-bulbs?variant=1806558953516"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy LED</a
+                >
               </td>
               <td class="px-4 py-3 border-b border-gray-700">
-                <a href="https://www.cometpinball.com/products/2smd-bulbs" class="text-blue-400 hover:underline" target="_blank">Buy LED</a>
+                <a
+                  href="https://www.cometpinball.com/products/2smd-bulbs?variant=1806558953516"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Buy LED</a
+                >
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <!-- Left-Aligned Footer Note -->
-      <p class="text-sm text-gray-400 mt-2"> Check out <a href="https://rhythm-cons.wiki/parts/parts/" target="_blank" class="text-blue-400 hover:underline">Rhythm Cons</a> for more links :D </p>
+      <p class="text-sm text-gray-400 mt-2">
+        Check out
+        <a
+          href="https://rhythm-cons.wiki/parts/parts/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-blue-400 hover:underline"
+          >Rhythm Cons</a
+        >
+        for more links :D
+      </p>
     </section>
     <!-- Different Modes -->
     <section id="modes" class="container mx-auto px-4 py-8 border-t border-gray-700">
       <h2 class="text-2xl font-bold mb-6">Different Modes</h2>
-      <p class="text-gray-300 mb-8"> Hold specific button combinations <span class="italic">while plugging the controller into your PC</span> to enter a mode. The selected mode is saved on board. </p>
+      <p class="text-gray-300 mb-8">
+        Hold specific button combinations
+        <span class="italic">while plugging the controller into your PC</span>
+        to enter a mode. The selected mode is saved on board.
+      </p>
       <div class="text-gray-300 bg-gray-800 p-4 rounded-lg border border-gray-700 mb-6">
-        <p class="text-sm font-semibold"> ⚠️ <span class="font-normal">If you have a newer SDVX Controller, you can skip holding the START button when switching modes.</span>
+        <p class="text-sm font-semibold">
+          ⚠️
+          <span class="font-normal"
+            >If you have a newer SDVX Controller, you can skip holding the START button when
+            switching modes.</span
+          >
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Keyboard Mode -->
-        <div class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition">
+        <div
+          class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition"
+        >
           <div class="flex items-start gap-3 mb-3">
             <div class="text-blue-400 text-xl">⌨️🖱️</div>
             <h3 class="text-lg font-semibold text-blue-400">Keyboard + Mouse Mode</h3>
@@ -277,7 +466,9 @@
           </p>
         </div>
         <!-- Controller + Mouse Mode -->
-        <div class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition">
+        <div
+          class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition"
+        >
           <div class="flex items-start gap-3 mb-3">
             <div class="text-blue-400 text-xl">🎮🖱️</div>
             <h3 class="text-lg font-semibold text-blue-400">Controller + Mouse Mode</h3>
@@ -289,19 +480,25 @@
           </p>
         </div>
         <!-- Controller HID Mode -->
-        <div class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition">
+        <div
+          class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition"
+        >
           <div class="flex items-start gap-3 mb-3">
             <div class="text-blue-400 text-xl">🎮</div>
             <h3 class="text-lg font-semibold text-blue-400">Controller HID Mode</h3>
           </div>
-          <p class="text-gray-300 mb-2">Gamepad input for buttons, knobs acts as gamepad joystick.</p>
+          <p class="text-gray-300 mb-2">
+            Gamepad input for buttons, knobs acts as gamepad joystick.
+          </p>
           <p class="text-sm text-gray-400">
             <span class="text-white font-medium">Hold:</span>
             <span class="font-semibold text-white">START + BT-C</span>
           </p>
         </div>
         <!-- Download Mode -->
-        <div class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition">
+        <div
+          class="bg-gray-900 border border-gray-700 rounded-lg p-5 hover:border-blue-400 transition"
+        >
           <div class="flex items-start gap-3 mb-3">
             <div class="text-blue-400 text-xl">⬇️🔄</div>
             <h3 class="text-lg font-semibold text-blue-400">Update Mode</h3>
@@ -317,29 +514,66 @@
     <!-- Yuancon Setup -->
     <section id="consetup" class="container mx-auto px-4 py-8 border-t border-gray-700">
       <h2 class="text-2xl font-bold mb-6">Yuancon Setup</h2>
-      <p class="mb-6 text-gray-300"> Quick setup instructions for using your Yuancon with popular rhythm game titles. </p>
+      <p class="mb-6 text-gray-300">
+        Quick setup instructions for using your Yuancon with popular rhythm game titles.
+      </p>
       <div class="text-gray-300 bg-gray-800 p-4 rounded-lg border border-gray-700 mb-6">
-        <p class="text-sm font-semibold"> ⚠️ <span class="font-normal">Make sure your controller has the <a href="https://rhythm-cons.wiki/commercial/yuancon/firmware/#sound-voltex" class="text-blue-400 font-medium hover:underline" target="_blank">latest firmware</a> installed before following the setup steps. </span>
+        <p class="text-sm font-semibold">
+          ⚠️
+          <span class="font-normal"
+            >Make sure your controller has the
+            <a
+              href="https://rhythm-cons.wiki/commercial/yuancon/firmware/#sound-voltex"
+              class="text-blue-400 font-medium hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              >latest firmware</a
+            >
+            installed before following the setup steps.
+          </span>
         </p>
       </div>
       <!-- Unnamed SDVX Clone -->
       <div class="mb-10">
         <h3 class="text-xl font-semibold text-blue-400 mb-4">
-          <a href="https://github.com/Drewol/unnamed-sdvx-clone" class="hover:underline">Unnamed SDVX Clone</a>
+          <a href="https://github.com/Drewol/unnamed-sdvx-clone" class="hover:underline"
+            >Unnamed SDVX Clone</a
+          >
         </h3>
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-5 mb-6">
           <ul class="list-disc list-inside text-gray-300 space-y-2">
-            <li>Use <strong>Mode 3</strong>. </li>
-            <li>Open <strong>Settings</strong> &gt; <strong>Input</strong> tab. </li>
-            <li>Set <strong>Button Input Mode</strong> and <strong>Laser Input Mode</strong> to <strong>Controller</strong>. </li>
-            <li>Set <strong>Selected Controller</strong> to <strong>Yuancon</strong>. </li>
-            <li>Go to the top and map your controller in the <strong>Key Bindings</strong> section. </li>
-            <li>Adjust <strong>Laser Sensitivity</strong> (recommended: <strong>1.875</strong> or whatever feels best for you). </li>
-            <li>If you're hitting notes too early or late: <ul class="list-disc list-inside pl-5 mt-1">
-                <li>Go to the <strong>Game</strong> tab and use <strong>Calibrate Offsets</strong>. </li>
-                <li>Try using the <a href="https://ksm.dev/songs/f5fcee60-a31a-11ea-9b78-9b4b93aa67f5" class="text-blue-400 hover:underline" target="_blank">
-                    <strong>Calibration chart from KSM.dev</strong>
-                  </a>. </li>
+            <li>Use <strong>Mode 3</strong>.</li>
+            <li>Open <strong>Settings</strong> &gt; <strong>Input</strong> tab.</li>
+            <li>
+              Set <strong>Button Input Mode</strong> and <strong>Laser Input Mode</strong> to
+              <strong>Controller</strong>.
+            </li>
+            <li>Set <strong>Selected Controller</strong> to <strong>Yuancon</strong>.</li>
+            <li>
+              Go to the top and map your controller in the
+              <strong>Key Bindings</strong> section.
+            </li>
+            <li>
+              Adjust <strong>Laser Sensitivity</strong> (recommended: <strong>1.875</strong> or
+              whatever feels best for you).
+            </li>
+            <li>
+              If you're hitting notes too early or late:
+              <ul class="list-disc list-inside pl-5 mt-1">
+                <li>
+                  Go to the <strong>Game</strong> tab and use <strong>Calibrate Offsets</strong>.
+                </li>
+                <li>
+                  Try using the
+                  <a
+                    href="https://ksm.dev/songs/f5fcee60-a31a-11ea-9b78-9b4b93aa67f5"
+                    class="text-blue-400 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>Calibration chart from KSM.dev</strong> </a
+                  >.
+                </li>
               </ul>
             </li>
             <li>
@@ -355,19 +589,33 @@
         </h3>
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-5">
           <ul class="list-disc list-inside text-gray-300 space-y-2">
-            <li>Use <strong>Mode 3</strong>. </li>
-            <li>Go to <strong>Option</strong> &gt; <strong>Key Configuration</strong>. </li>
-            <li>Change <strong>"Keyboard 1"</strong> to <strong>"Gamepad 1"</strong> (press right twice). </li>
-            <li>Map your buttons using the arrow keys and controller. (Knobs cannot be mapped – this is normal.)</li>
-            <li>Go to <strong>Input / Judgement Settings</strong>. </li>
-            <li>Scroll to <strong>Input Type of Laser Object</strong> and select <strong>Analog Stick X/Y</strong>. </li>
-            <li>Adjust knob sensitivity in <strong>Slider/Mouse Signal Sensitivity</strong>. </li>
+            <li>Use <strong>Mode 3</strong>.</li>
+            <li>Go to <strong>Option</strong> &gt; <strong>Key Configuration</strong>.</li>
+            <li>
+              Change <strong>"Keyboard 1"</strong> to <strong>"Gamepad 1"</strong> (press right
+              twice).
+            </li>
+            <li>
+              Map your buttons using the arrow keys and controller. (Knobs cannot be mapped – this
+              is normal.)
+            </li>
+            <li>Go to <strong>Input / Judgement Settings</strong>.</li>
+            <li>
+              Scroll to <strong>Input Type of Laser Object</strong> and select
+              <strong>Analog Stick X/Y</strong>.
+            </li>
+            <li>
+              Adjust knob sensitivity in
+              <strong>Slider/Mouse Signal Sensitivity</strong>.
+            </li>
             <li>Restart the game.</li>
             <li>
               <strong>Done. Have fun!</strong>
             </li>
           </ul>
-          <p class="text-sm text-gray-400 mt-3">Source: <span class="font-medium text-gray-300">stlr_lly</span> on Discord </p>
+          <p class="text-sm text-gray-400 mt-3">
+            Source: <span class="font-medium text-gray-300">stlr_lly</span> on Discord
+          </p>
         </div>
       </div>
       <!-- SOUND VOLTEX -->
@@ -375,10 +623,19 @@
         <h3 class="text-xl font-semibold text-blue-400 mb-4">SOUND VOLTEX</h3>
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-5">
           <ul class="list-disc list-inside text-gray-300 space-y-2">
-            <li>Use <strong>Mode 3</strong>. </li>
-            <li>If Mode 3 doesn’t work, try using <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/yuan/Mouse2key.rar" target="_blank" class="text-blue-400 hover:underline">
+            <li>Use <strong>Mode 3</strong>.</li>
+            <li>
+              If Mode 3 doesn’t work, try using
+              <a
+                href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/yuan/Mouse2key.rar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-blue-400 hover:underline"
+              >
                 <strong>Mouse2key</strong>
-              </a> to map your controls as a workaround. </li>
+              </a>
+              to map your controls as a workaround.
+            </li>
             <li>
               <strong>Done. Have fun!</strong>
             </li>
@@ -389,174 +646,370 @@
     <!-- Frequently Asked Questions -->
     <section id="faq" class="container mx-auto px-4 py-8 border-t border-gray-700">
       <h2 class="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
-      <p class="mb-6 text-gray-300">Answers to miscellaneous FAQs not covered in the above sections.</p>
+      <p class="mb-6 text-gray-300">
+        Answers to miscellaneous FAQs not covered in the above sections.
+      </p>
       <!-- FAQ List -->
       <div class="space-y-4">
         <!-- FAQ Item 1 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-1"> My controller didn't include an Allen key nor screwdriver. What should I do? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-1">
-            <p>The controller uses a <strong>2.5mm Hex Allen key</strong> to unscrew the knobs and case. </p>
-            <p>If you have a <strong>v1 Yuancon</strong>, you'll also need a <strong>size #2 screwdriver</strong> to open the case. </p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-1">
+            My controller didn't include an Allen key nor screwdriver. What should I do?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-1"
+          >
+            <p>
+              The controller uses a <strong>2.5mm Hex Allen key</strong> to unscrew the knobs and
+              case.
+            </p>
+            <p>
+              If you have a <strong>v1 Yuancon</strong>, you'll also need a
+              <strong>size #2 screwdriver</strong> to open the case.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 2 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-2"> I ordered a Sound Voltex Controller, and it's stuck on "payment received." How long will it take to be shipped? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-2">
-            <p>It takes about <strong>1 week to build</strong> the controller and <strong>5-7 days to ship</strong>, depending on your location. </p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-2">
+            I ordered a Sound Voltex Controller, and it's stuck on "payment received." How long will
+            it take to be shipped?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-2"
+          >
+            <p>
+              It takes about <strong>1 week to build</strong> the controller and
+              <strong>5-7 days to ship</strong>, depending on your location.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 3 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-3"> Is there a way to replace the paper inside the buttons? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-3">
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-3">
+            Is there a way to replace the paper inside the buttons?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-3"
+          >
             <p>Yes, you can replace the paper with custom cuts in these sizes:</p>
             <ul class="list-disc pl-5 mt-2">
-              <li>
-                <strong>START:</strong> 2.1x2.1cm
-              </li>
-              <li>
-                <strong>BT:</strong> 4.6x4.6cm
-              </li>
-              <li>
-                <strong>FX:</strong> 3.7x1.9cm
-              </li>
+              <li><strong>START:</strong> 2.1x2.1cm</li>
+              <li><strong>BT:</strong> 4.6x4.6cm</li>
+              <li><strong>FX:</strong> 3.7x1.9cm</li>
             </ul>
             <p>After cutting the paper, you'll need to disassemble the controller to replace it</p>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/customdjdao.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/customdjdao.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
         <!-- FAQ Item 4 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-4"> My knobs feel too loose or tight. What can I do? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-4">
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-4">
+            My knobs feel too loose or tight. What can I do?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-4"
+          >
             <p>Check the video below for instructions on how to adjust the knob tension.</p>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/adjustknobfeel.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/adjustknobfeel.mp4" type="video/mp4" />
               </video>
             </div>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/adjustknobtight.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/adjustknobtight.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
         <!-- FAQ Item 5 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-5"> My buttons are getting stuck. How can I fix this? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-5">
-            <p>You can sand the edges of the button or watch the video below for tips on cleaning your buttons.</p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-5">
+            My buttons are getting stuck. How can I fix this?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-5"
+          >
+            <p>
+              You can sand the edges of the button or watch the video below for tips on cleaning
+              your buttons.
+            </p>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/cleanbutton.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/cleanbutton.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
         <!-- FAQ Item 6 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-6"> How do I replace my buttons or springs? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-6">
-            <p>Replacing buttons or springs is simple. Watch the first video for v1, the second for v2, and the third if you're switching to Sanwa.</p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-6">
+            How do I replace my buttons or springs?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-6"
+          >
+            <p>
+              Replacing buttons or springs is simple. Watch the first video for v1, the second for
+              v2, and the third if you're switching to Sanwa.
+            </p>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/changebuttons.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/changebuttons.mp4" type="video/mp4" />
               </video>
             </div>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/condismantle.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/condismantle.mp4" type="video/mp4" />
               </video>
             </div>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/sanwabutton.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/sanwabutton.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
         <!-- FAQ Item 7 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-7"> How do I assemble or disassemble my Yuancon? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-7">
-            <p>Watch the video below for step-by-step instructions. It might take a little longer the first time.</p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-7">
+            How do I assemble or disassemble my Yuancon?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-7"
+          >
+            <p>
+              Watch the video below for step-by-step instructions. It might take a little longer the
+              first time.
+            </p>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/yuancon.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/yuancon.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
         <!-- FAQ Item 8 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-8"> My controller arrived damaged, what can I do? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-8">
-            <p>If any parts are damaged, message <strong>yuan0312</strong> on Discord. You can also join the Discord server at: </p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-8">
+            My controller arrived damaged, what can I do?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-8"
+          >
             <p>
-              <a href="https://discord.gg/4ncuRrq" class="text-blue-400 hover:underline" target="_blank">https://discord.gg/4ncuRrq</a>
+              If any parts are damaged, message <strong>yuan0312</strong> on Discord. You can also
+              join the Discord server at:
+            </p>
+            <p>
+              <a
+                href="https://discord.gg/4ncuRrq"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://discord.gg/4ncuRrq</a
+              >
             </p>
           </div>
         </div>
         <!-- FAQ Item 9 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-9"> Will customs charge me import tax? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-9">
-            <p>This varies depending on your country. You'll need to check your country's import tax rules. Some customers received their controller without having to pay taxes.</p>
+          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-9">
+            Will customs charge me import tax?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-9"
+          >
+            <p>
+              This varies depending on your country. You'll need to check your country's import tax
+              rules. Some customers received their controller without having to pay taxes.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 10 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-10"> What's the difference between CMOD, XMOD, and MMOD? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-10">
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-10"
+          >
+            What's the difference between CMOD, XMOD, and MMOD?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-10"
+          >
+            <p><strong>CMOD:</strong> Constant Hi-Speed with no changes. (cheater mod)</p>
+            <p><strong>XMOD:</strong> Multiply by BPM. (default SDVX hi-speed behavior)</p>
             <p>
-              <strong>CMOD:</strong> Constant Hi-Speed with no changes. (cheater mod)
-            </p>
-            <p>
-              <strong>XMOD:</strong> Multiply by BPM. (default SDVX hi-speed behavior)
-            </p>
-            <p>
-              <strong>MMOD:</strong> Finely tuned speed that can be locked in to persist between songs. (SDVX floating hi-speed behavior with double tap start/red number when locked in)
+              <strong>MMOD:</strong> Finely tuned speed that can be locked in to persist between
+              songs. (SDVX floating hi-speed behavior with double tap start/red number when locked
+              in)
             </p>
           </div>
         </div>
         <!-- FAQ Item 11 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-11"> Is there a guide for building an SDVX Controller? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-11">
-            <p>Yes, you can find guides for building an <a href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/" class="text-blue-400 hover:underline" target="_blank">
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-11"
+          >
+            Is there a guide for building an SDVX Controller?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-11"
+          >
+            <p>
+              Yes, you can find guides for building an
+              <a
+                href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <strong>SDVX Controller</strong>
-              </a> and a <a href="https://github.com/speedypotato/Pocket-SDVX" class="text-blue-400 hover:underline" target="_blank">
-                <strong>Pocket SDVX Controller</strong>
-              </a>. </p>
+              </a>
+              and a
+              <a
+                href="https://github.com/speedypotato/Pocket-SDVX"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>Pocket SDVX Controller</strong> </a
+              >.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 12 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-12"> My controller has no input. What should I do? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-12">
-            <p>Try connecting the controller to a USB 2.0/3.0 port. If you're using a USB hub, make sure it has enough power. If that doesn't work, open the case and check for unplugged cables.</p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-12"
+          >
+            My controller has no input. What should I do?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-12"
+          >
+            <p>
+              Try connecting the controller to a USB 2.0/3.0 port. If you're using a USB hub, make
+              sure it has enough power. If that doesn't work, open the case and check for unplugged
+              cables.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 13 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-13"> How can I make the Yuancon buttons brighter? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-13">
-            <p>To make the buttons brighter, you can disconnect the RGB lights or short the resistors marked "RL" (only for older models).</p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-13"
+          >
+            How can I make the Yuancon buttons brighter?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-13"
+          >
+            <p>
+              To make the buttons brighter, you can disconnect the RGB lights or short the resistors
+              marked "RL" (only for older models).
+            </p>
             <div class="bg-yellow-500 text-black p-2 rounded-lg mt-2 inline-block">
               <strong>⚠️</strong>
               <span>DO NOT attempt this on newer models!</span>
@@ -565,23 +1018,40 @@
         </div>
         <!-- FAQ Item 14 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-14"> Does Yuancon support Linux? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-14">
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-14"
+          >
+            Does Yuancon support Linux?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-14"
+          >
             <div class="space-y-6">
-              <p>Yuancon doesn't support Linux officially, but it can work on Linux with a few steps. There are three methods currently available.</p>
+              <p>
+                Yuancon doesn't support Linux officially, but it can work on Linux with a few steps.
+                There are three methods currently available.
+              </p>
               <!-- Method 1 -->
               <div>
                 <h4 class="font-semibold">Method 1</h4>
                 <p class="mt-1 font-medium">Requirements:</p>
                 <ul class="list-disc list-inside mb-4">
                   <li>Xorg display server</li>
-                  <li>The controller must be in <span class="font-semibold">Mode 1</span>
+                  <li>
+                    The controller must be in
+                    <span class="font-semibold">Mode 1</span>
                   </li>
                 </ul>
                 <ol class="list-decimal list-inside space-y-2">
-                  <li>Install <code class="bg-gray-800 px-1 rounded">evdev</code>
-                  </li>
-                  <li> Create a file named <code class="bg-gray-800 px-1 rounded">10-yuancon.conf</code> in <code class="bg-gray-800 px-1 rounded">/etc/X11/xorg.conf.d/</code> containing:
+                  <li>Install <code class="bg-gray-800 px-1 rounded">evdev</code></li>
+                  <li>
+                    Create a file named
+                    <code class="bg-gray-800 px-1 rounded">10-yuancon.conf</code>
+                    in
+                    <code class="bg-gray-800 px-1 rounded">/etc/X11/xorg.conf.d/</code>
+                    containing:
                     <pre class="bg-gray-800 p-3 rounded mt-2 whitespace-pre-wrap text-sm">
 Section "InputClass"
     Identifier "Yuancon"
@@ -593,7 +1063,10 @@ EndSection
                   </li>
                   <li>Restart the X server or your PC</li>
                 </ol>
-                <p class="text-sm text-gray-400 mt-3">Source: <span class="font-medium text-gray-300">stlr_lly</span> on Discord </p>
+                <p class="text-sm text-gray-400 mt-3">
+                  Source:
+                  <span class="font-medium text-gray-300">stlr_lly</span> on Discord
+                </p>
               </div>
               <!-- Method 2 -->
               <div>
@@ -601,13 +1074,22 @@ EndSection
                 <p class="mt-1 font-medium">Requirements:</p>
                 <ul class="list-disc list-inside mb-4">
                   <li>Xorg display server</li>
-                  <li>The controller must be in <span class="font-semibold">Mode 3</span>
+                  <li>
+                    The controller must be in
+                    <span class="font-semibold">Mode 3</span>
                   </li>
                 </ul>
                 <ol class="list-decimal list-inside space-y-2">
-                  <li>Install <code class="bg-gray-800 px-1 rounded">libinput</code>
+                  <li>
+                    Install
+                    <code class="bg-gray-800 px-1 rounded">libinput</code>
                   </li>
-                  <li> Create a file named <code class="bg-gray-800 px-1 rounded">10-yuancon.conf</code> in <code class="bg-gray-800 px-1 rounded">/etc/X11/xorg.conf.d/</code> containing:
+                  <li>
+                    Create a file named
+                    <code class="bg-gray-800 px-1 rounded">10-yuancon.conf</code>
+                    in
+                    <code class="bg-gray-800 px-1 rounded">/etc/X11/xorg.conf.d/</code>
+                    containing:
                     <pre class="bg-gray-800 p-3 rounded mt-2 whitespace-pre-wrap text-sm">
 Section "InputClass"
     Identifier "Yuancon"
@@ -619,35 +1101,61 @@ EndSection
                   </li>
                   <li>Restart the X server or your PC</li>
                 </ol>
-                <p class="text-sm text-gray-400 mt-3">Source: <span class="font-medium text-gray-300">Oxystyle#3791</span> on Discord </p>
+                <p class="text-sm text-gray-400 mt-3">
+                  Source:
+                  <span class="font-medium text-gray-300">Oxystyle#3791</span>
+                  on Discord
+                </p>
               </div>
               <!-- Method 3 -->
               <div>
                 <h4 class="font-semibold">Method 3</h4>
                 <p class="mt-1 font-medium">Requirements:</p>
                 <ul class="list-disc list-inside mb-4">
-                  <li>The controller must be in <span class="font-semibold">Mode 1</span>
+                  <li>
+                    The controller must be in
+                    <span class="font-semibold">Mode 1</span>
                   </li>
                 </ul>
                 <ol class="list-decimal list-inside space-y-2">
-                  <li> Create a file named <code class="bg-gray-800 px-1 rounded">99-yuancon-sdvx.rules</code> in <code class="bg-gray-800 px-1 rounded">/etc/udev/rules.d/</code> containing:
+                  <li>
+                    Create a file named
+                    <code class="bg-gray-800 px-1 rounded">99-yuancon-sdvx.rules</code>
+                    in
+                    <code class="bg-gray-800 px-1 rounded">/etc/udev/rules.d/</code>
+                    containing:
                     <pre class="bg-gray-800 p-3 rounded mt-2 whitespace-pre-wrap text-sm">
       ACTION=="add|change", KERNEL=="event[0-9]*", \
       ENV{ID_VENDOR_ID}=="51bf", ENV{ID_MODEL_ID}=="2101", \
       ENV{ID_INPUT_MOUSE}="1"
                     </pre>
                   </li>
-                  <li>Use <code class="bg-gray-800 px-1 rounded">udevadm control --reload-rules</code> to reload. </li>
+                  <li>
+                    Use
+                    <code class="bg-gray-800 px-1 rounded">udevadm control --reload-rules</code>
+                    to reload.
+                  </li>
                 </ol>
-                <p class="text-sm text-gray-400 mt-3">Source: <span class="font-medium text-gray-300">clam#9791</span> on Discord </p>
+                <p class="text-sm text-gray-400 mt-3">
+                  Source:
+                  <span class="font-medium text-gray-300">clam#9791</span> on Discord
+                </p>
               </div>
             </div>
           </div>
         </div>
         <!-- FAQ Item 15 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-15"> What kind of lubricant should I use for my buttons/knobs? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-15">
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-15"
+          >
+            What kind of lubricant should I use for my buttons/knobs?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-15"
+          >
             <p>Use Silicone or Lithium-based lubricants for your buttons and knobs.</p>
             <div class="bg-yellow-500 text-black p-2 rounded-lg mt-2 inline-block">
               <strong>⚠️</strong>
@@ -657,44 +1165,118 @@ EndSection
         </div>
         <!-- FAQ Item 16 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-16"> My USB-C connector is loose or broken. What should I do? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-16">
-            <p>If it’s loose, try adding more solder. If it’s broken, follow the video below to solder it back. Alternatively, message <strong>yuan0312</strong> on Discord for a replacement. </p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-16"
+          >
+            My USB-C connector is loose or broken. What should I do?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-16"
+          >
+            <p>
+              If it’s loose, try adding more solder. If it’s broken, follow the video below to
+              solder it back. Alternatively, message
+              <strong>yuan0312</strong> on Discord for a replacement.
+            </p>
             <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4">
-              <video controls loading="lazy" class="video-js vjs-big-play-centered object-cover rounded" width="403" height="195" data-setup='{}'>
-                <source src="assets/videos/soldering.mp4" type="video/mp4">
+            <div
+              class="bg-gray-900 rounded-lg shadow-md overflow-hidden p-4 flex items-center space-x-4"
+            >
+              <video
+                controls
+                loading="lazy"
+                class="video-js vjs-big-play-centered object-cover rounded"
+                width="403"
+                height="195"
+                data-setup="{}"
+              >
+                <source src="assets/videos/soldering.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
         <!-- FAQ Item 17 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-17"> Is there a replacement PCB for my controller? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-17">
-            <p>Yes, there is! It's called <a href="https://docs.google.com/forms/d/e/1FAIpQLSceX7ymdTM1C4ybAGF0M_NCVBJW79J1P2H3cTHEDekqiC1Z1Q/viewform" class="text-blue-400 hover:underline">
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-17"
+          >
+            Is there a replacement PCB for my controller?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-17"
+          >
+            <p>
+              Yes, there is! It's called
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSceX7ymdTM1C4ybAGF0M_NCVBJW79J1P2H3cTHEDekqiC1Z1Q/viewform"
+                class="text-blue-400 hover:underline"
+              >
                 <strong>Roxy</strong>
-              </a> and was designed by <strong>vxzk</strong>. </p>
-            <img src="assets/images/roxy.webp" alt="Roxy PCB" width="403" height="250" class="mt-4 rounded-lg shadow-md">
+              </a>
+              and was designed by <strong>vxzk</strong>.
+            </p>
+            <img
+              src="assets/images/roxy.webp"
+              alt="Roxy PCB"
+              width="403"
+              height="250"
+              class="mt-4 rounded-lg shadow-md"
+            />
           </div>
         </div>
         <!-- FAQ Item 18 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-18"> Are there any Discord servers I can join? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-18">
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-18"
+          >
+            Are there any Discord servers I can join?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-18"
+          >
             <p>Yes, there are a few discords you can join:</p>
             <ul class="list-disc pl-5 mt-2">
               <li>
-                <a href="https://discord.gg/kshootmania" class="text-blue-400 hover:underline" target="_blank">K-Shoot Mania</a>
+                <a
+                  href="https://discord.gg/kshootmania"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >K-Shoot Mania</a
+                >
               </li>
               <li>
-                <a href="https://discord.gg/unnamedsdvx" class="text-blue-400 hover:underline" target="_blank">Unnamed SDVX Clone</a>
+                <a
+                  href="https://discord.gg/unnamedsdvx"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Unnamed SDVX Clone</a
+                >
               </li>
               <li>
-                <a href="https://discord.gg/consandstuff" class="text-blue-400 hover:underline" target="_blank">Cons&Stuff</a>
+                <a
+                  href="https://discord.gg/consandstuff"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Cons&Stuff</a
+                >
               </li>
               <li>
-                <a href="https://discord.gg/MmuKd73XbY" class="text-blue-400 hover:underline" target="_blank">SpeedyLabs</a>
+                <a
+                  href="https://discord.gg/MmuKd73XbY"
+                  class="text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >SpeedyLabs</a
+                >
               </li>
             </ul>
             <p>If you know of any other discords, feel free to let me know! :)</p>
@@ -702,81 +1284,198 @@ EndSection
         </div>
         <!-- FAQ Item 19 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-19"> Help! I'm having issues with USC! </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-19">
-            <p>If you're facing issues with USC, check out their <a href="https://github.com/Drewol/unnamed-sdvx-clone/wiki/F.-A.-Q." class="text-blue-400 hover:underline" target="_blank">FAQ page</a> for help. </p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-19"
+          >
+            Help! I'm having issues with USC!
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-19"
+          >
+            <p>
+              If you're facing issues with USC, check out their
+              <a
+                href="https://github.com/Drewol/unnamed-sdvx-clone/wiki/F.-A.-Q."
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >FAQ page</a
+              >
+              for help.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 20 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-20"> Where are the song packs from, and are they updated? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-20">
-            <p>SDVX I-II song packs are from <a href="https://github.com/Schinizer/kshootmaniasdvx" class="text-blue-400 hover:underline" target="_blank">here</a>, SDVX III-IV are from the <a href="https://discord.com/channels/209316761428819969/937000775371079690/937004250570047568" class="text-blue-400 hover:underline" target="_blank">K-Shoot Mania Discord</a>. These packs have updated difficulties for VW rerates and VividWave changes using <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/misc/convert_updater.zip" class="text-blue-400 hover:underline" target="_blank">KshootmaniaDifficultyChanger</a> & <a href="https://cdn.discordapp.com/attachments/554218350692270090/644081866596548618/vivid_wave_diff_changes_ksh_replacement.zip" class="text-blue-400 hover:underline" target="_blank">VW Diff KSH Replacement</a>. SDVX V packs are from <a href="https://mega.nz/#F!RGBHlC6S!fbm3n3HfFAHGDQdADMgOnQ" class="text-blue-400 hover:underline" target="_blank">here</a>, and SDVX VI packs are also from the <a href="https://drive.google.com/drive/folders/1S8gj7-waR4o4o7gU_NZtR3VmsD8UY4ho" class="text-blue-400 hover:underline" target="_blank">K-Shoot Mania Discord</a>. </p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-20"
+          >
+            Where are the song packs from, and are they updated?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-20"
+          >
+            <p>
+              SDVX I-II song packs are from
+              <a
+                href="https://github.com/Schinizer/kshootmaniasdvx"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >here</a
+              >, SDVX III-IV are from the
+              <a
+                href="https://discord.com/channels/209316761428819969/937000775371079690/937004250570047568"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >K-Shoot Mania Discord</a
+              >. These packs have updated difficulties for VW rerates and VividWave changes using
+              <a
+                href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/misc/convert_updater.zip"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >KshootmaniaDifficultyChanger</a
+              >
+              &
+              <a
+                href="https://cdn.discordapp.com/attachments/554218350692270090/644081866596548618/vivid_wave_diff_changes_ksh_replacement.zip"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >VW Diff KSH Replacement</a
+              >. SDVX V packs are from
+              <a
+                href="https://mega.nz/#F!RGBHlC6S!fbm3n3HfFAHGDQdADMgOnQ"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >here</a
+              >, and SDVX VI packs are also from the
+              <a
+                href="https://drive.google.com/drive/folders/1S8gj7-waR4o4o7gU_NZtR3VmsD8UY4ho"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >K-Shoot Mania Discord</a
+              >.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 21 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-21"> How can I get a custom acrylic panel for my Yuancon, and how much does it cost? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-21">
-            <p> To get a custom acrylic panel, design it and send it to <strong>yuan0312</strong> on Discord. The cost is <strong>$35</strong> (subject to change). <br> If you need the SVG file for YuanCon, <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/yuan/Yuancon_panel_empty.svg" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">click here</a>. <br> For the PSD file, <a href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/yuan/yuancon-SDVX2019-RGB-art.psd" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">click here</a>. </p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-21"
+          >
+            How can I get a custom acrylic panel for my Yuancon, and how much does it cost?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-21"
+          >
+            <p>
+              To get a custom acrylic panel, design it and send it to
+              <strong>yuan0312</strong> on Discord. The cost is <strong>$35</strong> (subject to
+              change). <br />
+              If you need the SVG file for YuanCon,
+              <a
+                href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/yuan/Yuancon_panel_empty.svg"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                target="_blank"
+                rel="noopener noreferrer"
+                >click here</a
+              >. <br />
+              For the PSD file,
+              <a
+                href="https://cdn.oniichan.wtf/file/oniichan-wtf-files/yuan/yuancon-SDVX2019-RGB-art.psd"
+                class="text-blue-400 hover:underline"
+                target="_blank"
+                target="_blank"
+                rel="noopener noreferrer"
+                >click here</a
+              >.
+            </p>
           </div>
         </div>
         <!-- FAQ Item 22 -->
         <div class="bg-gray-900 border border-gray-700 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline" id="faq-22"> I get an error on USC: "Could not open selected gamepad." What should I do? </h3>
-          <div class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0" id="answer-22">
-            <p>Unplug any gamepad devices and see if it works. If not, go to the USC directory, open <strong>Main.cfg</strong>, find <strong>Controller_DeviceID</strong>, and set it to <strong>0</strong>. That should fix the issue. </p>
+          <h3
+            class="text-lg font-semibold text-blue-400 cursor-pointer hover:underline"
+            id="faq-22"
+          >
+            I get an error on USC: "Could not open selected gamepad." What should I do?
+          </h3>
+          <div
+            class="faq-answer hidden mt-2 text-gray-300 overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+            id="answer-22"
+          >
+            <p>
+              Unplug any gamepad devices and see if it works. If not, go to the USC directory, open
+              <strong>Main.cfg</strong>, find <strong>Controller_DeviceID</strong>, and set it to
+              <strong>0</strong>. That should fix the issue.
+            </p>
           </div>
         </div>
       </div>
     </section>
     <script>
       function toggleAnswer(faq) {
-        const answerId = faq.id.replace('faq-', '');
-        const answer = document.getElementById('answer-' + answerId);
-        const expanded = !answer.classList.contains('hidden');
+        const answerId = faq.id.replace("faq-", "");
+        const answer = document.getElementById("answer-" + answerId);
+        const expanded = !answer.classList.contains("hidden");
         // Toggle ARIA state
-        faq.setAttribute('aria-expanded', !expanded);
+        faq.setAttribute("aria-expanded", !expanded);
         // Animate with max-height
         if (expanded) {
-          answer.classList.add('hidden');
+          answer.classList.add("hidden");
           answer.style.maxHeight = null;
         } else {
-          answer.classList.remove('hidden');
+          answer.classList.remove("hidden");
           answer.style.maxHeight = answer.scrollHeight + "px";
         }
       }
       // FAQ toggle via click and keyboard
-      document.querySelectorAll('.cursor-pointer').forEach(faq => {
+      document.querySelectorAll(".cursor-pointer").forEach((faq) => {
         // Make it accessible
-        faq.setAttribute('role', 'button');
-        faq.setAttribute('tabindex', '0');
-        faq.setAttribute('aria-expanded', 'false');
+        faq.setAttribute("role", "button");
+        faq.setAttribute("tabindex", "0");
+        faq.setAttribute("aria-expanded", "false");
         // Click handler
-        faq.addEventListener('click', () => toggleAnswer(faq));
+        faq.addEventListener("click", () => toggleAnswer(faq));
         // Keyboard handler
-        faq.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
+        faq.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             toggleAnswer(faq);
           }
         });
       });
       // Auto-open if URL has hash like #faq-10
-      window.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener("DOMContentLoaded", () => {
         const hash = window.location.hash;
-        if (hash.startsWith('#faq-')) {
+        if (hash.startsWith("#faq-")) {
           const id = hash.slice(1); // strip the #
           const faqElement = document.getElementById(id);
           if (faqElement) {
             toggleAnswer(faqElement);
             faqElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
+              behavior: "smooth",
+              block: "start",
             });
           }
         }
       });
     </script>
+    <!-- Enhanced Navigation -->
+    <script src="./assets/js/navigation.js"></script>
+    <!-- Service Worker Registration -->
+    <script src="./assets/js/sw-register.js"></script>
   </body>
 </html>

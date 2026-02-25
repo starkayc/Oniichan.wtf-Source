@@ -1,0 +1,52 @@
+/**
+ * IBM Plex Sans Font - Local Fallback
+ * 
+ * For production use, download the actual font files from:
+ * https://fonts.google.com/specimen/IBM+Plex+Sans
+ * 
+ * Or use IBM's official repository:
+ * https://github.com/IBM/plex
+ * 
+ * Instructions:
+ * 1. Download IBMPlexSans-Regular.woff2 and IBMPlexSans-SemiBold.woff2
+ * 2. Place them in this directory (help/assets/fonts/)
+ * 3. The @font-face rules below will automatically load them
+ */
+
+/* IBM Plex Sans - Regular (400) */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  /* Uncomment and use the line below when you have the actual font files */
+  /* src: url('IBMPlexSans-Regular.woff2') format('woff2'); */
+
+  /* Temporary fallback to prevent CSS errors */
+  src: local("Arial"), local("Helvetica");
+}
+
+/* IBM Plex Sans - SemiBold (600) */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  /* Uncomment and use the line below when you have the actual font files */
+  /* src: url('IBMPlexSans-SemiBold.woff2') format('woff2'); */
+
+  /* Temporary fallback to prevent CSS errors */
+  src: local("Arial Bold"), local("Helvetica Bold");
+}
+
+/* Fallback font stack with similar characteristics */
+:root {
+  --font-ibm-plex-sans:
+    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Apply to body if not using Tailwind's font-sans class */
+body {
+  font-family: var(--font-ibm-plex-sans);
+}

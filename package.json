@@ -1,0 +1,13 @@
+{
+  "name": "oniichan-wtf",
+  "private": true,
+  "description": "SDVX & Yuancon FAQ guide — static site source",
+  "scripts": {
+    "dev": "npx http-server . -p 8000 --cors -c-1",
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}

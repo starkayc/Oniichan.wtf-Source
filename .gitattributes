@@ -1,0 +1,11 @@
+# Ensure consistent LF line endings in the repository (matches .prettierrc endOfLine: "lf")
+* text=auto eol=lf
+
+# Binary assets — don't touch
+*.png binary
+*.ico binary
+*.webp binary
+*.woff2 binary
+*.mp4 binary
+*.zip binary
+*.rar binary

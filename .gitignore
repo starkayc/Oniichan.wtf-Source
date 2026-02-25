@@ -1,0 +1,44 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files (each developer should maintain their own settings)
+.idea/
+*.swp
+*.swo
+*.kate-swp
+.vimrc
+.editorconfig.local
+
+# Node / local dev tooling
+node_modules/
+yarn.lock
+pnpm-lock.yaml
+npm-debug.log*
+yarn-error.log*
+.npm/
+.pnpm-store/
+
+# Local dev server artifacts
+.serve/
+.cache/
+
+# Local environment overrides — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Python dev server artifacts (for local testing with python -m http.server)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
