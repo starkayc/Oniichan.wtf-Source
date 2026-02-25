@@ -338,6 +338,18 @@ nav a {
 }
 
 /* =============================================
+   VIDEO.JS BIG PLAY BUTTON — centre fix
+   Video.js uses negative margins to centre the button which can leave it
+   slightly off. Override with transform so it's always pixel-perfect.
+   ============================================= */
+.video-js .vjs-big-play-button {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}
+
+/* =============================================
    VIDEO THUMBNAIL area polish
    ============================================= */
 div.bg-black {
