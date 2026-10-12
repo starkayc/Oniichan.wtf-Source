@@ -1,4 +1,5 @@
-# Ensure consistent LF line endings in the repository (matches .prettierrc endOfLine: "lf")
+# Force LF in the working tree everywhere: .sh/.yml break on CRLF, CI runs these
+# on Linux, and .prettierrc sets endOfLine "lf".
 * text=auto eol=lf
 
 # Binary assets — don't touch
@@ -8,4 +9,3 @@
 *.woff2 binary
 *.mp4 binary
 *.zip binary
-*.rar binary

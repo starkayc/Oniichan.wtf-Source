@@ -1,39 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Home / Index Page -->
-  <url>
-    <loc>https://oniichan.wtf/</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Help Home / FAQ Page -->
+<!--
+  The three pages that should be indexed. The root index.html is a redirect into
+  /help/ and carries a noindex tag, so it is not listed here: a redirect in a
+  sitemap is a soft error, and there is nothing at that URL to index.
+
+  No lastmod. It cannot be kept accurate without a build step, and a stale one is
+  worse than none — Google falls back to its own crawl data. For the same reason
+  there is no changefreq or priority: Google ignores both.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oniichan.wtf/help/</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-  
-  <!-- Skins Collection Page -->
   <url>
     <loc>https://oniichan.wtf/help/skins.html</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
-  
-  <!-- Songs Database Page -->
   <url>
     <loc>https://oniichan.wtf/help/songs.html</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
-  
 </urlset>

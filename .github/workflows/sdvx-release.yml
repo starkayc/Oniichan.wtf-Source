@@ -1,0 +1,137 @@
+name: SDVX Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      drive_url:
+        description: Google Drive folder URL to download
+        required: true
+        default: https://drive.google.com/drive/folders/1_oH4lznRv7uONGDTrvm_upvBJGYpjAiz
+      pack:
+        description: Pack prefix used in the zip name (e.g. SDVX7)
+        required: true
+        default: SDVX7
+  schedule:
+    # Daily poll. The check stage decides whether a release is due, so an
+    # unchanged folder costs one Drive listing and nothing else.
+    - cron: "17 9 * * *"
+
+env:
+  WORKDIR: /tmp/sdvx-release
+  TZ: America/New_York
+  PYTHONUNBUFFERED: "1"
+  # workflow_dispatch inputs are empty on a scheduled run, hence the fallbacks.
+  DRIVE_URL: ${{ inputs.drive_url || 'https://drive.google.com/drive/folders/1_oH4lznRv7uONGDTrvm_upvBJGYpjAiz' }}
+  PACK: ${{ inputs.pack || 'SDVX7' }}
+
+# A scheduled run and a manual click must not overlap: both would zip and upload
+# the same pack name. Queued rather than cancelled, so an upload is never cut off.
+concurrency:
+  group: sdvx-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and publish SDVX pack
+    runs-on: ubuntu-latest
+    # Packs run to several GB; the default 6h is too long to sit on a hung upload.
+    timeout-minutes: 180
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install rclone (GPG-verified)
+        run: |
+          set -euo pipefail
+          case "$(uname -m)" in
+            x86_64)  RCLONE_ARCH=amd64 ;;
+            aarch64) RCLONE_ARCH=arm64 ;;
+            *) echo "unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+          esac
+          RCLONE_VERSION=v1.75.1
+          RCLONE_KEY_FPR=FBF737ECE9F8AB18604BD2AC93935E02FF3B54FA
+          RCLONE_ZIP="rclone-${RCLONE_VERSION}-linux-${RCLONE_ARCH}.zip"
+          RCLONE_BASE="https://downloads.rclone.org/${RCLONE_VERSION}"
+          echo "::group::rclone ${RCLONE_VERSION} (GPG-verified)"
+          command -v gpg >/dev/null || { sudo apt-get update -qq; sudo apt-get install -y -qq gnupg; }
+          rm -rf /tmp/rclone && mkdir -p /tmp/rclone && cd /tmp/rclone
+          curl -fsSLO "${RCLONE_BASE}/${RCLONE_ZIP}"
+          curl -fsSLO "${RCLONE_BASE}/SHA256SUMS"
+          export GNUPGHOME="$(mktemp -d)"
+          curl -fsSL "https://www.craig-wood.com/nick/pub/pgp-key.txt" | gpg --batch --import
+          gpg --fingerprint --with-colons | awk -F: '/^fpr:/{print $10}' | grep -qx "${RCLONE_KEY_FPR}"
+          gpg --status-fd 1 --verify SHA256SUMS 2>/dev/null | grep -qF "VALIDSIG ${RCLONE_KEY_FPR}"
+          gpg --decrypt SHA256SUMS | sha256sum -c --ignore-missing -
+          python3 -m zipfile -e "${RCLONE_ZIP}" /tmp/rclone-extract
+          sudo install -m 0755 "/tmp/rclone-extract/rclone-${RCLONE_VERSION}-linux-${RCLONE_ARCH}/rclone" /usr/local/bin/rclone
+          rclone version
+          echo "::endgroup::"
+
+      - name: Check Drive folder for a newer release
+        id: check
+        env:
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_TOKEN }}
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+        run: bash release/sdvx-release.sh check
+
+      # After the check, so a no-change poll never pays for the venv build.
+      - name: Install the Python client
+        if: ${{ success() && steps.check.outputs.changed != 'false' }}
+        run: |
+          set -euo pipefail
+          echo "::group::python venv + client libraries"
+          python3 -m venv /tmp/venv
+          echo "/tmp/venv/bin" >> "$GITHUB_PATH"
+          /tmp/venv/bin/pip install --require-hashes --no-deps -r "${GITHUB_WORKSPACE}/release/requirements.txt"
+          /tmp/venv/bin/python -c "import mediafire; print('client library imports OK')"
+          echo "::endgroup::"
+
+      - name: Download, pack, upload and patch the card
+        if: ${{ success() && steps.check.outputs.changed != 'false' }}
+        env:
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_TOKEN }}
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          B2_BUCKET: ${{ secrets.B2_BUCKET }}
+          RCLONE_CONFIG_B2_TYPE: b2
+          RCLONE_CONFIG_B2_ACCOUNT: ${{ secrets.B2_ACCOUNT_ID }}
+          RCLONE_CONFIG_B2_KEY: ${{ secrets.B2_APP_KEY }}
+          MEGA_EMAIL: ${{ secrets.MEGA_EMAIL }}
+          MEGA_PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+          MEDIAFIRE_EMAIL: ${{ secrets.MEDIAFIRE_EMAIL }}
+          MEDIAFIRE_PASSWORD: ${{ secrets.MEDIAFIRE_PASSWORD }}
+        run: bash release/sdvx-release.sh all
+
+      - name: Commit updated help/songs.html
+        if: ${{ success() && steps.check.outputs.changed != 'false' }}
+        run: |
+          BASE="$(git rev-parse HEAD)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add help/songs.html release/source-date.txt
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "Update ${{ env.PACK }} download links and MD5"
+          # The run holds this branch for the whole upload, so a push that landed meanwhile
+          # refuses ours. Replay only our own commit onto the new tip: `pull --rebase`
+          # would replay the checkout commit too, because a depth-1 fetch cannot prove it
+          # is already upstream, and that conflicts (run #14).
+          git fetch --depth=1 origin "${GITHUB_REF_NAME}"
+          git rebase --onto FETCH_HEAD "$BASE" "${GITHUB_REF_NAME}"
+          git push origin "${GITHUB_REF_NAME}"
+          echo "pushed $(git rev-parse --short HEAD)"
+
+      - name: Trigger the GitHub Pages deploy
+        if: ${{ success() && steps.check.outputs.changed != 'false' }}
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/ci.yml/dispatches" \
+            -d "{\"ref\":\"${GITHUB_REF_NAME}\"}"

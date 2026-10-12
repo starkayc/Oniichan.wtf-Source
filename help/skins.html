@@ -1,240 +1,305 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <!-- Umami Analytics -->
     <script
       defer
       src="https://dashboard.starkayc.moe/script.js"
       data-website-id="07407566-4575-46cc-a32b-398d5ca55db1"
+      data-do-not-track="true"
+      data-performance="true"
     ></script>
-    <meta charset="UTF-8" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <!-- Performance & Security Meta Tags -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="telephone=no" />
-    <!-- Theme Color for mobile browsers -->
-    <meta name="theme-color" content="#0d1117" />
-    <!-- SEO Title -->
+    <meta name="theme-color" content="#1e1f2b" />
+    <meta name="color-scheme" content="dark" />
     <title>Skins Collection | Oniichan.wtf</title>
-    <!-- Meta Description for SEO -->
     <meta
       name="description"
       content="Download various skins for the Unnamed SDVX Clone, including popular and custom designs."
     />
-    <!-- Open Graph (for social media) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Skins Collection for Unnamed SDVX Clone | Oniichan.wtf" />
     <meta
       property="og:description"
       content="Explore and download skins for the Unnamed SDVX Clone."
     />
-    <meta property="og:image" content="assets/images/favicon.png" />
+    <meta property="og:image" content="https://oniichan.wtf/help/assets/images/icon-512.png" />
     <meta property="og:url" content="https://oniichan.wtf/help/skins.html" />
-    <!-- Canonical URL to prevent duplicate‐content issues -->
     <link rel="canonical" href="https://oniichan.wtf/help/skins.html" />
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Skins Collection for Unnamed SDVX Clone | Oniichan.wtf" />
     <meta
       name="twitter:description"
       content="Explore and download skins for the Unnamed SDVX Clone."
     />
-    <meta name="twitter:image" content="assets/images/favicon.png" />
-    <!-- Favicon (ICO fallback) -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
-    <!-- Favicon (Modern PNG) -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Oniichan.wtf" />
-    <!-- Font Awesome -->
-    <link href="./assets/css/font-awesome-7.1.0-all.min.css" rel="stylesheet" />
-    <!-- Video.js CSS & JS -->
-    <link href="./assets/css/video-js-8.10.0.css" rel="stylesheet" />
-    <script src="./assets/js/video-8.10.0.min.js"></script>
-    <!-- IBM Plex Sans Font (Local) -->
-    <link href="./assets/fonts/ibm-plex-sans.css" rel="stylesheet" />
-    <!-- Global Styles & Optimizations -->
-    <link href="./assets/css/global-styles.css" rel="stylesheet" />
-    <!-- Tailwind CSS -->
-    <script src="./assets/js/tailwindcss-3.4.17.js"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: [
-                '"IBM Plex Sans"',
-                "-apple-system",
-                "BlinkMacSystemFont",
-                '"Segoe UI"',
-                "Roboto",
-                "sans-serif",
-              ],
-            },
-            screens: {
-              xs: "475px",
-            },
-          },
-        },
-      };
-    </script>
-    <!-- Modern Design System (loaded after Tailwind to win the cascade) -->
-    <link href="./assets/css/design-modern.css" rel="stylesheet" />
+    <meta name="twitter:image" content="https://oniichan.wtf/help/assets/images/icon-512.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+    <!-- The two faces the first screen needs, so they are fetched with the CSS -->
+    <link
+      rel="preload"
+      href="./assets/fonts/nunito-sans-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/lora-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="./assets/css/fonts.css" rel="stylesheet" />
+    <link href="./assets/css/base.css" rel="stylesheet" />
+    <link href="./assets/css/theme.css" rel="stylesheet" />
   </head>
-  <body class="bg-gray-900 text-white font-sans">
-    <!-- Navbar -->
-    <nav class="bg-gray-900 p-4 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <img src="assets/images/favicon.png" alt="Oniichan.wtf Logo" class="h-8 w-8" />
-        <!-- Navbar Links -->
-        <div class="space-x-4 text-sm flex">
-          <a href="index.html" class="text-gray-300 hover:text-gray-100">
-            <i class="fas fa-home"></i> Home
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="site-nav">
+      <div class="container">
+        <a href="index.html" class="site-brand" aria-label="Oniichan.wtf home" draggable="false">
+          <img src="./assets/images/favicon.png" alt="" draggable="false" />
+        </a>
+        <div class="nav-links">
+          <a href="index.html">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z"
+              />
+              <path
+                d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z"
+              />
+            </svg>
+            Home
           </a>
-          <a href="songs.html" class="text-gray-300 hover:text-gray-100">
-            <i class="fas fa-music"></i> Songs
+          <a href="songs.html">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19.952 1.651a.75.75 0 0 1 .298.599V16.303a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.403-4.909l2.311-.66a1.5 1.5 0 0 0 1.088-1.442V6.994l-9 2.572v9.737a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.402-4.909l2.31-.66a1.5 1.5 0 0 0 1.088-1.442V5.25a.75.75 0 0 1 .544-.721l10.5-3a.75.75 0 0 1 .658.122Z"
+              />
+            </svg>
+            Songs
           </a>
-          <a href="skins.html" class="text-blue-400 font-semibold">
-            <i class="fas fa-paint-brush"></i> Skins
+          <a href="skins.html" aria-current="page">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747 18.747 0 0 0-3.471 2.987 10.04 10.04 0 0 1 4.815 4.815 18.748 18.748 0 0 0 2.987-3.472l3.386-5.079A1.902 1.902 0 0 0 20.599 1.5Zm-8.3 14.025a18.76 18.76 0 0 0 1.896-1.207 8.026 8.026 0 0 0-4.513-4.513A18.75 18.75 0 0 0 8.475 11.7l-.278.5a5.156 5.156 0 0 1 3.601 3.602l.502-.278ZM6.75 13.5A3.75 3.75 0 0 0 3 17.25a1.5 1.5 0 0 1-1.601 1.497.75.75 0 0 0-.7 1.123 5.25 5.25 0 0 0 9.8-2.62 3.75 3.75 0 0 0-3.75-3.75Z"
+              />
+            </svg>
+            Skins
           </a>
           <a
-            href="https://github.com/starkayc/Oniichan.wtf-Source"
+            href="https://github.com/starkayc/Oniichan.wtf-Source?utm_source=oniichan.wtf"
             target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-300 hover:text-gray-100"
+            rel="noopener"
           >
-            <i class="fab fa-github"></i> Source
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            Source
           </a>
         </div>
       </div>
     </nav>
-    <!-- Main Content -->
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Nightfall -->
-        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-          <div class="w-full h-48 bg-black">
+    <main id="main" tabindex="-1" class="section section-lead container">
+      <!-- The nav's current item names the page, so this is for the document outline
+           and crawlers rather than the eye. The grid is the first thing on screen. -->
+      <h1 class="sr-only">Skins Collection</h1>
+      <div class="card-grid card-grid--4">
+        <div class="card">
+          <div class="media-frame">
             <video
-              controls
-              class="video-js vjs-big-play-centered w-full h-full object-cover"
-              data-setup="{}"
+              muted
+              preload="none"
+              playsinline
+              poster="./assets/images/posters/skins/nightfall.webp"
             >
-              <source src="assets/videos/skins/nightfall.mp4?v=1.5.9" type="video/mp4" />
+              <source src="./assets/videos/skins/nightfall.mp4?v=1.5.9" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <button
+              type="button"
+              class="preview-play"
+              aria-label="Play the Nightfall preview"
+              data-umami-event="skin_play"
+              data-umami-event-skin="nightfall"
+            >
+              <svg class="preview-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5.14v13.72L19 12 8 5.14Z" />
+              </svg>
+            </button>
+            <p class="preview-status" role="status"></p>
           </div>
-          <div class="p-4">
-            <h3 class="text-lg font-bold text-center mb-4">Nightfall</h3>
-            <p class="text-center text-sm text-gray-400">
-              <span class="font-bold text-white">Creator:</span>
+          <div class="card-body">
+            <h2>Nightfall</h2>
+            <p class="text-faint">
+              <span class="font-semibold text-ink">Creator:</span>
               <a
-                href="https://github.com/Hoshikara"
+                class="credit-link"
+                aria-label="hoshikara on GitHub"
+                href="https://github.com/Hoshikara?utm_source=oniichan.wtf"
                 target="_blank"
-                rel="noopener noreferrer"
-                class="text-blue-500 hover:underline"
+                rel="noopener"
                 >hoshikara</a
               >
             </p>
             <a
+              aria-label="Download the Nightfall skin"
               href="https://github.com/Hoshikara/Nightfall/archive/refs/heads/main.zip"
-              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4"
-              data-umami-event="Download Skins"
+              class="btn"
+              data-umami-event="skin_download"
+              data-umami-event-host="github"
+              data-umami-event-skin="nightfall"
               >Download</a
             >
           </div>
         </div>
 
-        <!-- LiqidWave -->
-        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-          <div class="w-full h-48 bg-black">
+        <div class="card">
+          <div class="media-frame">
             <video
-              controls
-              class="video-js vjs-big-play-centered w-full h-full object-cover"
-              data-setup="{}"
+              muted
+              preload="none"
+              playsinline
+              poster="./assets/images/posters/skins/liqidwave.webp"
             >
-              <source src="assets/videos/skins/liqidwave.mp4?v=1.5.0" type="video/mp4" />
+              <source src="./assets/videos/skins/liqidwave.mp4?v=1.5.0" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <button
+              type="button"
+              class="preview-play"
+              aria-label="Play the LiqidWave preview"
+              data-umami-event="skin_play"
+              data-umami-event-skin="liqidwave"
+            >
+              <svg class="preview-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5.14v13.72L19 12 8 5.14Z" />
+              </svg>
+            </button>
+            <p class="preview-status" role="status"></p>
           </div>
-          <div class="p-4">
-            <h3 class="text-lg font-bold text-center mb-4">LiqidWave</h3>
-            <p class="text-center text-sm text-gray-400">
-              <span class="font-bold text-white">Creator:</span> dreamy_ouchaco
+          <div class="card-body">
+            <h2>LiqidWave</h2>
+            <p class="text-faint">
+              <span class="font-semibold text-ink">Creator:</span> dreamy_ouchaco
             </p>
             <a
+              aria-label="Download the LiqidWave skin"
               href="https://r2.oniichan.wtf/skins/LiqidWave-1.5.0-memory-leak-fix.zip"
-              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4"
-              data-umami-event="Download Skins"
+              class="btn"
+              data-umami-event="skin_download"
+              data-umami-event-host="r2"
+              data-umami-event-skin="liqidwave"
               >Download</a
             >
           </div>
         </div>
-        <!-- Heavenly Express -->
-        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-          <div class="w-full h-48 bg-black">
+        <div class="card">
+          <div class="media-frame">
             <video
-              controls
-              class="video-js vjs-big-play-centered w-full h-full object-cover"
-              data-setup="{}"
+              muted
+              preload="none"
+              playsinline
+              poster="./assets/images/posters/skins/heavenlyexpress.webp"
             >
-              <source src="assets/videos/skins/heavenlyexpress.mp4?v=1.3.0" type="video/mp4" />
+              <source src="./assets/videos/skins/heavenlyexpress.mp4?v=1.3.0" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <button
+              type="button"
+              class="preview-play"
+              aria-label="Play the Heavenly Express preview"
+              data-umami-event="skin_play"
+              data-umami-event-skin="heavenlyexpress"
+            >
+              <svg class="preview-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5.14v13.72L19 12 8 5.14Z" />
+              </svg>
+            </button>
+            <p class="preview-status" role="status"></p>
           </div>
-          <div class="p-4">
-            <h3 class="text-lg font-bold text-center mb-4">Heavenly Express</h3>
-            <p class="text-center text-sm text-gray-400">
-              <span class="font-bold text-white">Creator:</span> dreamy_ouchaco
+          <div class="card-body">
+            <h2>Heavenly Express</h2>
+            <p class="text-faint">
+              <span class="font-semibold text-ink">Creator:</span> dreamy_ouchaco
             </p>
             <a
+              aria-label="Download the Heavenly Express skin"
               href="https://r2.oniichan.wtf/skins/HeavenlyExpress-1.3.0.zip"
-              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4"
-              data-umami-event="Download Skins"
+              class="btn"
+              data-umami-event="skin_download"
+              data-umami-event-host="r2"
+              data-umami-event-skin="heavenlyexpress"
               >Download</a
             >
           </div>
         </div>
-        <!-- ExperimentalGear -->
-        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-          <div class="w-full h-48 bg-black">
+        <div class="card">
+          <div class="media-frame">
             <video
-              controls
-              class="video-js vjs-big-play-centered w-full h-full object-cover"
-              data-setup="{}"
+              muted
+              preload="none"
+              playsinline
+              poster="./assets/images/posters/skins/experimentalgear.webp"
             >
-              <source src="assets/videos/skins/experimentalgear.mp4?v=0.2.3" type="video/mp4" />
+              <source src="./assets/videos/skins/experimentalgear.mp4?v=0.2.3" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <button
+              type="button"
+              class="preview-play"
+              aria-label="Play the ExperimentalGear preview"
+              data-umami-event="skin_play"
+              data-umami-event-skin="experimentalgear"
+            >
+              <svg class="preview-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5.14v13.72L19 12 8 5.14Z" />
+              </svg>
+            </button>
+            <p class="preview-status" role="status"></p>
           </div>
-          <div class="p-4">
-            <h3 class="text-lg font-bold text-center mb-4">ExperimentalGear</h3>
-            <p class="text-center text-sm text-gray-400">
-              <span class="font-bold text-white">Creator:</span>
+          <div class="card-body">
+            <h2>ExperimentalGear</h2>
+            <p class="text-faint">
+              <span class="font-semibold text-ink">Creator:</span>
               <a
+                class="credit-link"
+                aria-label="ExperimentalGear Dev Team on Discord"
                 href="https://discord.gg/KNgeqSdSWs"
                 target="_blank"
-                rel="noopener noreferrer"
-                class="text-blue-500 hover:underline"
+                rel="noopener"
                 >ExperimentalGear Dev Team</a
               >
             </p>
             <a
+              aria-label="Download the ExperimentalGear skin"
               href="https://r2.oniichan.wtf/skins/ExperimentalGear-0.3.0-rc4.zip"
-              class="block w-full text-center bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 mt-4"
-              data-umami-event="Download Skins"
+              class="btn"
+              data-umami-event="skin_download"
+              data-umami-event-host="r2"
+              data-umami-event-skin="experimentalgear"
               >Download</a
             >
           </div>
         </div>
       </div>
-    </div>
-    <!-- Enhanced Navigation -->
-    <script src="./assets/js/navigation.js"></script>
-    <!-- Service Worker Registration -->
-    <script src="./assets/js/sw-register.js"></script>
+    </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M11.47 2.47a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06l-6.22-6.22V21a.75.75 0 0 1-1.5 0V4.81l-6.22 6.22a.75.75 0 1 1-1.06-1.06l7.5-7.5Z"
+        />
+      </svg>
+    </button>
+    <script type="module" src="./assets/js/preview.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
   </body>
 </html>

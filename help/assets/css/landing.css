@@ -1,0 +1,144 @@
+/**
+ * Landing page and 404: a flat canvas with pill CTAs. base.css supplies the reset, the
+ * tokens and the type (and the reduced-motion block); fonts.css supplies the faces.
+ */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* The page surface: theme.css sets it for the help pages, which the landing and the
+     404 do not load. */
+  background: var(--c-bg);
+  /* 17px as everywhere else, but the splash carries its own slightly tighter leading. */
+  line-height: 1.55;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 2rem;
+  background: var(--c-surface);
+  border: 1px solid rgba(178, 185, 189, 0.18);
+  border-radius: var(--r-lg);
+  box-shadow: 0 3px 5px 30px rgba(0, 0, 0, 0.22);
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.logo img {
+  width: 68px;
+  height: 68px;
+}
+
+h1 {
+  color: var(--c-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.05rem + 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  margin-bottom: 0.75rem;
+  text-wrap: balance;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.subtitle {
+  color: var(--c-muted);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  font-weight: 400;
+  margin-bottom: 3rem;
+  text-wrap: pretty;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  animation: fadeInUp 0.6s ease-out 0.35s both;
+}
+
+a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.875rem 2.25rem;
+  color: var(--c-on-accent);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  background: var(--c-accent);
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition:
+    background var(--t-base),
+    transform var(--t-base);
+}
+
+/* Pointer-only, like every other hover on the site: on touch the engine applies
+   :hover on tap and leaves it stuck to the pill. */
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    background: var(--c-accent-hover);
+  }
+}
+
+a:active {
+  transform: scale(0.95);
+  transition-duration: 0.1s;
+}
+
+.note {
+  margin-top: 3rem;
+  color: var(--c-faint);
+  font-size: 0.8125rem;
+  animation: fadeInUp 0.6s ease-out 0.45s both;
+}
+
+@media (max-width: 640px) {
+  .logo {
+    width: 84px;
+    height: 84px;
+  }
+
+  .logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+  a {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}

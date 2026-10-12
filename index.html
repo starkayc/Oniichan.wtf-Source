@@ -2,278 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Oniichan.wtf - SDVX & Yuancon FAQ Guide" />
     <title>Oniichan.wtf - SDVX Guide</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          "IBM Plex Sans",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        background: #0d1117;
-        position: relative;
-        overflow: hidden;
-        min-height: 100vh;
-      }
-
-      /* Ambient background glow — matches the help site */
-      .bg-gradient {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:
-          radial-gradient(ellipse 80% 60% at 20% -5%, rgba(29, 78, 216, 0.22) 0%, transparent 60%),
-          radial-gradient(
-            ellipse 60% 50% at 80% 100%,
-            rgba(109, 40, 217, 0.14) 0%,
-            transparent 55%
-          ),
-          #0d1117;
-        z-index: 0;
-      }
-
-      /* Floating particles */
-      .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        pointer-events: none;
-      }
-
-      .particle {
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background: rgba(96, 165, 250, 0.35);
-        border-radius: 50%;
-        animation: float 20s infinite;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100px) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      .container {
-        position: relative;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .logo {
-        width: 110px;
-        height: 110px;
-        background: rgba(22, 32, 48, 0.65);
-        border-radius: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        animation: pulse 2.5s ease-in-out infinite;
-        backdrop-filter: blur(20px) saturate(160%);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        box-shadow: 0 0 32px rgba(59, 130, 246, 0.12);
-      }
-
-      .logo img {
-        width: 68px;
-        height: 68px;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          box-shadow: 0 0 32px rgba(59, 130, 246, 0.12);
-        }
-        50% {
-          transform: scale(1.04);
-          box-shadow: 0 0 48px rgba(59, 130, 246, 0.28);
-        }
-      }
-
-      h1 {
-        color: #fff;
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      .subtitle {
-        color: rgba(209, 213, 219, 0.85);
-        font-size: 1.125rem;
-        margin-bottom: 3rem;
-        font-weight: 400;
-        animation: fadeInUp 0.8s ease-out 0.2s both;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .loading-bar {
-        width: 200px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 2px;
-        overflow: hidden;
-        margin: 2rem auto;
-        animation: fadeInUp 0.8s ease-out 0.4s both;
-      }
-
-      .loading-bar-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #1d4ed8, #3b82f6, #60a5fa);
-        background-size: 200% 100%;
-        animation: loadingAnimation 1.5s ease-in-out infinite;
-        border-radius: 2px;
-      }
-
-      @keyframes loadingAnimation {
-        0% {
-          width: 0%;
-          background-position: 0% 50%;
-        }
-        50% {
-          width: 100%;
-          background-position: 100% 50%;
-        }
-        100% {
-          width: 0%;
-          background-position: 0% 50%;
-        }
-      }
-
-      .link-container {
-        margin-top: 2rem;
-        animation: fadeInUp 0.8s ease-out 0.6s both;
-      }
-
-      a {
-        display: inline-block;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.125rem;
-        padding: 0.875rem 2.25rem;
-        background: linear-gradient(145deg, #1d4ed8, #3b82f6);
-        border: none;
-        border-radius: 10px;
-        transition: all 0.25s ease;
-        box-shadow: 0 2px 10px rgba(29, 78, 216, 0.38);
-        cursor: pointer;
-        letter-spacing: 0.01em;
-      }
-
-      a:hover {
-        background: linear-gradient(145deg, #1e40af, #2563eb);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 22px rgba(29, 78, 216, 0.58);
-      }
-
-      a:active {
-        transform: translateY(0);
-      }
-
-      .note {
-        margin-top: 3rem;
-        color: rgba(156, 163, 175, 0.7);
-        font-size: 0.8125rem;
-        animation: fadeInUp 0.8s ease-out 0.8s both;
-      }
-
-      @media (max-width: 640px) {
-        h1 {
-          font-size: 2rem;
-        }
-
-        .subtitle {
-          font-size: 1rem;
-        }
-
-        .logo {
-          width: 80px;
-          height: 80px;
-        }
-
-        .logo img {
-          width: 48px;
-          height: 48px;
-        }
-
-        a {
-          padding: 0.875rem 2rem;
-          font-size: 1rem;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-      }
-    </style>
+    <!-- A timed redirect with no content of its own, so it carries noindex and is left
+         out of sitemap.xml. -->
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#1e1f2b" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://oniichan.wtf/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Oniichan.wtf - SDVX &amp; Yuancon FAQ Guide" />
+    <meta property="og:description" content="SDVX &amp; Yuancon FAQ guide, skins and song packs." />
+    <meta property="og:image" content="https://oniichan.wtf/help/assets/images/icon-512.png" />
+    <meta property="og:url" content="https://oniichan.wtf/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Oniichan.wtf - SDVX &amp; Yuancon FAQ Guide" />
+    <meta
+      name="twitter:description"
+      content="SDVX &amp; Yuancon FAQ guide, skins and song packs."
+    />
+    <meta name="twitter:image" content="https://oniichan.wtf/help/assets/images/icon-512.png" />
+    <link rel="icon" type="image/x-icon" href="./help/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="./help/assets/images/favicon.png" />
+    <!-- The two faces the first screen needs, so they are fetched with the CSS -->
+    <link
+      rel="preload"
+      href="./help/assets/fonts/nunito-sans-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./help/assets/fonts/lora-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./help/assets/css/fonts.css" />
+    <link rel="stylesheet" href="./help/assets/css/base.css" />
+    <link rel="stylesheet" href="./help/assets/css/landing.css" />
+    <!-- This page only redirects; without JS the script below never runs. -->
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=./help/" />
+    </noscript>
   </head>
   <body>
-    <div class="bg-gradient"></div>
-    <div class="particles" id="particles"></div>
-
     <div class="container">
       <div class="logo">
-        <img src="./help/assets/images/favicon.png" alt="Oniichan.wtf Logo" />
+        <img src="./help/assets/images/favicon.png" alt="Oniichan.wtf Logo" draggable="false" />
       </div>
       <h1>Oniichan.wtf</h1>
-      <p class="subtitle">SDVX & Yuancon FAQ Guide</p>
-
-      <div class="loading-bar">
-        <div class="loading-bar-fill"></div>
-      </div>
+      <p class="subtitle">SDVX &amp; Yuancon FAQ Guide</p>
 
       <div class="link-container">
         <a href="./help/" id="mainLink">Enter Site</a>
@@ -282,45 +64,17 @@
       <p class="note">Redirecting automatically...</p>
     </div>
 
-    <script>
-      // Create floating particles
-      (function () {
-        const particlesContainer = document.getElementById("particles");
-        const particleCount = 20;
+    <!-- Inline: one request fewer on the path that wants to be fastest. The <noscript>
+         refresh above covers no-JS. -->
+    <script type="module">
+      const redirectTimeout = setTimeout(() => {
+        window.location.href = "./help/";
+      }, 1500);
 
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.animationDelay = Math.random() * 20 + "s";
-          particle.style.animationDuration = 15 + Math.random() * 10 + "s";
-          particlesContainer.appendChild(particle);
-        }
-      })();
-
-      // Automatic redirect with relative path (works locally and in production)
-      (function () {
-        const redirectDelay = 1500; // 1.5 seconds
-
-        const redirectTimeout = setTimeout(function () {
-          try {
-            // Use relative path so it works both locally and on GitHub Pages
-            window.location.href = "./help/";
-          } catch (e) {
-            console.error("Redirect failed:", e);
-          }
-        }, redirectDelay);
-
-        // Clear timeout if user clicks the link manually
-        document.getElementById("mainLink").addEventListener("click", function () {
-          clearTimeout(redirectTimeout);
-        });
-
-        // Clear timeout if user navigates away
-        window.addEventListener("beforeunload", function () {
-          clearTimeout(redirectTimeout);
-        });
-      })();
+      // Pressing the link navigates anyway; stop the timer so the two cannot race.
+      document
+        .getElementById("mainLink")
+        .addEventListener("click", () => clearTimeout(redirectTimeout));
     </script>
   </body>
 </html>

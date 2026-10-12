@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- A 404 is never the destination anyone wanted, so it stays out of the index and
+         out of sitemap.xml. -->
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#1e1f2b" />
+    <meta name="color-scheme" content="dark" />
+    <title>Page not found | Oniichan.wtf</title>
+    <!-- Absolute paths on purpose: this one file is served at any depth. -->
+    <link rel="icon" type="image/x-icon" href="/help/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/help/assets/images/favicon.png" />
+    <link rel="stylesheet" href="/help/assets/css/fonts.css" />
+    <link rel="stylesheet" href="/help/assets/css/base.css" />
+    <link rel="stylesheet" href="/help/assets/css/landing.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="/help/assets/images/favicon.png" alt="Oniichan.wtf Logo" draggable="false" />
+      </div>
+      <h1>That page isn&rsquo;t here</h1>
+      <p class="subtitle">The link may be old, or the address may have a typo in it.</p>
+
+      <div class="link-container">
+        <a href="/help/">Open the guide</a>
+        <a href="/help/songs.html">Song packs</a>
+      </div>
+
+      <p class="note">
+        Controller info, the FAQ and the skins all live in the guide. Paths without an extension
+        redirect on their own.
+      </p>
+    </div>
+    <script type="module">
+      // Inline: a 404 has no state to keep, and one fewer module to fetch on the path
+      // that wants to be fastest. The map itself lives in legacy-paths.js.
+      import { resolveLegacyPath } from "/help/assets/js/legacy-paths.js";
+
+      const target = resolveLegacyPath(window.location.pathname);
+      if (target) window.location.replace(target + window.location.search + window.location.hash);
+    </script>
+  </body>
+</html>

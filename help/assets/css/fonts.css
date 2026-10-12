@@ -1,0 +1,46 @@
+/**
+ * Self-hosted webfonts, one file per role: Lora (display) and Nunito Sans (body),
+ * latin subset. The fallback faces below are metric-matched, so the swap moves nothing.
+ */
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito-sans-variable.woff2") format("woff2");
+  /* `opsz` 6–12: both 17px and any larger probe size clamp to 12, so the face stays
+     linear in font size and its metrics can be measured at a scaled-up size. */
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("../fonts/lora-variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans Fallback";
+  src:
+    local("Arial"), local("Helvetica"), local("Liberation Sans"), local("Roboto"),
+    local("Noto Sans");
+  font-weight: 100 1000;
+  /* `size-adjust` scales the overrides too: these are the web font's own metrics
+     divided by it. */
+  size-adjust: 100.28%;
+  ascent-override: 100.89%;
+  descent-override: 35.2%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Lora Fallback";
+  /* Engines resolve a different local serif here; this is the middle value. */
+  src: local("Times New Roman"), local("Liberation Serif"), local("Tinos"), local("Noto Serif");
+  font-weight: 100 900;
+  size-adjust: 117.23%;
+  ascent-override: 85.75%;
+  descent-override: 23.35%;
+  line-gap-override: 0%;
+}

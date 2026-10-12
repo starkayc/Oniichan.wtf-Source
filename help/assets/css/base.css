@@ -1,0 +1,581 @@
+/**
+ * Base styles: reset, design tokens, globals, accessibility, print. Loaded first, so
+ * theme.css always wins a tie; the @font-face rules live in fonts.css.
+ */
+
+/* ============================================
+   RESET
+   ============================================ */
+/* What the markup actually relied on from Tailwind's preflight. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Marker-less by default; `.list-disc` / `.list-decimal` bring one back. */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Buttons keep the site's type instead of the platform's. */
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+  /* Dark the native UI (scrollbars, form controls, the pre-CSS canvas) so the
+     page never flashes white. Mirrored by the <meta name="color-scheme">. */
+  color-scheme: dark;
+
+  /* Surfaces — Monokai Pro "Octagon" deepened: its dark1 as the page, dark2
+     recessed beneath it. Recessed panels avoid the glare raised ones cause. */
+  --c-bg: #1e1f2b;
+  --c-surface: #161821;
+  --c-media: #111219;
+  /* Sticky chrome is the one surface above the page rather than beneath it: a bar
+     that is not lighter than the content under it never reads as fixed. */
+  --c-chrome: #292c3b;
+  --c-border: rgba(178, 185, 189, 0.15);
+  --c-divider: rgba(178, 185, 189, 0.075);
+  --c-border-accent: rgba(154, 189, 236, 0.42);
+
+  /* Text — high enough to read without effort, not so high that it glares. */
+  --c-ink: #eaeff7;
+  --c-muted: #ccd4df;
+  --c-faint: #a3adbd;
+  --c-accent: #9abdec;
+  --c-accent-hover: #a9c7f2;
+  --c-on-accent: #101725;
+
+  /* Focus — a brighter blue, distinct from the resting accent. */
+  --c-focus: #2997ff;
+
+  /* Advisory boxes. The only warm colours on the site: the two amber warnings,
+     and nothing else. */
+  --c-notice-fill: rgba(150, 105, 50, 0.16);
+  --c-notice-border: rgba(216, 172, 106, 0.3);
+  --c-notice-ink: #f3d69b;
+
+  /* Lora display, Nunito Sans text, metric-matched fallbacks in fonts.css. Weight
+     500 is deliberately absent; body copy is 17px, not 16px. */
+  --font-display: "Lora", "Lora Fallback", Georgia, serif;
+  --font-sans:
+    "Nunito Sans", "Nunito Sans Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Radii — 8 compact utility, 11 capsule, 18 utility card, pill for actions. */
+  --r-xs: 5px;
+  --r-sm: 8px;
+  --r-md: 11px;
+  --r-lg: 18px;
+  --r-pill: 9999px;
+
+  /* The subset of the type scale this site uses; the FAQ rhythm is structural,
+     everything else stays inline. */
+  --space-md: 17px;
+  --space-lg: 24px;
+
+  /* The Title role: h3 inside a section and a card's own label, so the two cannot
+     drift and a card title can never fall below the button label under it. */
+  --text-title: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
+
+  /* `--faq-scale` multiplies the list's spacing rhythm, `--faq-q-size` is the question
+     type size, and `--faq-measure: none` runs the list the full container rail. */
+  --faq-scale: 1.4;
+  --faq-q-size: 1.3125rem;
+  --faq-measure: none;
+  --faq-media: 56rem;
+
+  /* The one prose measure, 68 characters at 18px. Measured rather than estimated —
+     it came from rendered line length, not from the scale above. */
+  --measure-prose: 46rem;
+
+  /* Section rhythm. The flat 80px step is too heavy for a dense FAQ page, so this
+     stays a clamp; it is the one spacing step that overrides the scale. */
+  --space-section: clamp(2.5rem, 5vw, 4rem);
+
+  --t-fast: 0.15s ease;
+  --t-base: 0.25s ease;
+  /* Spring feel for transforms; the wrong curve for reveals (see --drawer-easing). */
+  --t-settle: 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Read by the chevron transition and faq.js both, so panel and affordance cannot drift. */
+  --drawer-duration: 300ms;
+  --drawer-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shared by both sticky bars so one interaction cannot be two shades. Opaque on
+     purpose: a translucent pill samples whatever is behind the bar. */
+  --pill-hover: color-mix(in srgb, var(--c-ink) 8%, var(--c-chrome));
+  --pill-press: color-mix(in srgb, var(--c-ink) 14%, var(--c-chrome));
+  --pill-current: color-mix(in srgb, var(--c-accent) 16%, var(--c-chrome));
+
+  /* Inset ring, not a border: a transparent border is a compositing seam inside a
+     backdrop-filter layer that iOS can paint. */
+  --pill-ring: inset 0 0 0 1px var(--c-border-accent);
+
+  /* The nav, the in-page nav's `top` and anchor offsets all agree through this. */
+  --h-nav: 65px;
+}
+
+/* Phones get a shorter bar: tighter padding, same 32px logo. */
+@media (max-width: 480px) {
+  :root {
+    --h-nav: 53px;
+  }
+}
+
+/* ============================================
+   Scroll behaviour
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+/* Tap highlight off: iOS paints its own translucent highlight over tappable
+   elements, which reads as a white pill flashing. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+/* Real weights are shipped, so never fake them. */
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; /* 17px body */
+  /* Light-on-dark leading and tracking, both tied to --measure-prose. */
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+  /* The ink tier: everything else steps down from it via `.text-muted` / `.text-faint`. */
+  color: var(--c-ink);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  /* The insertion point is part of the type, so it takes the accent rather than
+     the platform default. */
+  caret-color: var(--c-accent);
+  /* Notch/home-indicator insets; the sticky nav handles the top cutout itself. */
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* One step larger from 1024px up; the measure holds the line length at both. */
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.125rem; /* 18px */
+  }
+}
+
+/* Tight tracking at display sizes, weight 600. The 4px accent bar is the system's
+   one ornament, and direct children only — a card title must not collect it. */
+h1,
+.section > h2 {
+  font-weight: 600;
+  text-wrap: balance;
+  letter-spacing: -0.018em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+/* h4 carries no size step on purpose: it separates alternatives inside an answer by face
+   and colour tier, not size — the ladder between Body and Question is 3px wide. */
+
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  text-wrap: balance;
+  letter-spacing: -0.005em;
+}
+
+.section > h2 {
+  position: relative;
+  padding-left: 0.85rem;
+}
+
+.section > h2::before {
+  content: "";
+  position: absolute;
+  top: 0.1em;
+  left: 0;
+  width: 4px;
+  height: 0.8em;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+/* Inline emphasis is the ladder's 600 — the same weight as `.font-semibold`, which the
+   markup already uses for the identical job. Left alone, the browser's `bolder` resolves
+   `strong` to 700 and one role renders at two weights. */
+strong,
+b {
+  font-weight: 600;
+}
+
+/* ============================================
+   Inline SVG icons
+   ============================================ */
+
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+}
+
+/* Outline icons, the FAQ chevron's family: `.icon` fills with currentColor, so a
+   stroke icon opts out here rather than through per-path attributes. */
+.icon-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ============================================
+   Back-to-top button
+   ============================================ */
+
+.back-to-top {
+  position: fixed;
+  right: calc(0.5rem + env(safe-area-inset-right, 0px));
+  bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px, the size every other pill in the system uses, tucked into the corner: at 50px
+     and a 2rem inset the pill overlapped the FAQ chevron on every width up to ~1670px. */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 1.25rem;
+  color: var(--c-on-accent);
+  background: var(--c-accent);
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  /* Materialise rather than just fade: scale and blur animate together so it reads
+     as a surface arriving, and the paths match on the way out. */
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(6px);
+  transform: scale(0.85);
+  transition:
+    opacity var(--t-base),
+    visibility var(--t-base),
+    transform var(--t-settle),
+    filter var(--t-settle);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    filter: blur(0);
+    transform: none;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ============================================
+   Tables
+   ============================================ */
+
+/* The cell step. It sits here rather than in theme.css because the narrow-screen
+   override below has to be able to win the tie. */
+.table-wrap th,
+.table-wrap td {
+  padding: 0.75rem 1rem;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 0.875rem;
+  }
+
+  .table-wrap th,
+  .table-wrap td {
+    padding: 0.5rem;
+  }
+}
+
+/* ============================================
+   Skip link
+   ============================================ */
+
+/* The three help pages open with a four-item nav and, on the FAQ, a five-item in-page
+   nav. Off-canvas rather than `display: none` so it stays in the tab order. */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  color: var(--c-on-accent);
+  background: var(--c-accent);
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform var(--t-base);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Print
+   ============================================ */
+
+/* Paper is another surface, not another design system: remap the tokens and every
+   component that reads them — headings, prose, links, table heads, notices — comes out
+   in ink. The block that only reset `body` left 32 text elements under 4.5:1, every link
+   among them at 1.38:1. */
+@media print {
+  :root {
+    --c-bg: #fff;
+    --c-surface: #fff;
+    --c-media: #fff;
+    --c-chrome: #fff;
+    --c-ink: #000;
+    --c-muted: #1c1c1c;
+    --c-faint: #333;
+    --c-accent: #1c1c1c;
+    --c-accent-hover: #000;
+    --c-on-accent: #000;
+    --c-focus: #000;
+    --c-border: rgba(0, 0, 0, 0.35);
+    --c-divider: rgba(0, 0, 0, 0.18);
+    --c-border-accent: rgba(0, 0, 0, 0.5);
+    --c-notice-fill: #f4f1ea;
+    --c-notice-border: #6b6152;
+    --c-notice-ink: #000;
+  }
+
+  /* Paper does not animate, and a transition caught mid-flight prints a half-blended
+     colour: WebKit measured a link at rgb(135, 164, 204) instead of the remapped ink. */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Nothing that has no job on paper: the bars, the clips, their empty wells, the play
+     affordances and the floating pill (which would otherwise reprint on every sheet). */
+  nav,
+  video,
+  .back-to-top,
+  .preview-play,
+  .preview-status,
+  .video-frame,
+  .media-frame:has(video) {
+    display: none !important;
+  }
+
+  /* Fills do not print by default, so a filled control becomes an outlined label —
+     legible whether or not the reader's print dialog includes backgrounds. */
+  .btn,
+  .btn-ghost {
+    color: #000;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  /* The three surfaces that carry a literal dark fill rather than a token. */
+  .table-row,
+  .code-block,
+  .inline-code {
+    background: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+/* The markup composes these: one spacing step, one colour role, one list marker.
+   They are the page's own scale rather than a framework's, and they load before
+   theme.css so a component rule still wins the tie. */
+.container {
+  width: 100%;
+  max-width: 96rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-ink {
+  color: var(--c-ink);
+}
+
+.text-muted {
+  color: var(--c-muted);
+}
+
+.text-faint {
+  color: var(--c-faint);
+}
+
+/* 14px with the 20px line box the nav and the caption rows were measured against. */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* The marker and the indent travel together, so a list cannot lose one of them. */
+.list-disc,
+.list-decimal {
+  padding-left: 1.25rem;
+}
+
+.list-disc {
+  list-style: disc;
+}
+
+.list-decimal {
+  list-style: decimal;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+/* `:where()` keeps the class at zero specificity, so a component's own rhythm rule
+   (`.faq-answer > * + *`) still wins. */
+:where(.space-y-2 > :not(:last-child)) {
+  margin-bottom: 0.5rem;
+}
+
+:where(.space-y-6 > :not(:last-child)) {
+  margin-bottom: 1.5rem;
+}

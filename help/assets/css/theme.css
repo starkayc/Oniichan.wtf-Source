@@ -1,0 +1,1096 @@
+/**
+ * Theme — component styles built on the tokens and utilities in base.css.
+ * Loaded last, so these plain rules win ties.
+ */
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(178, 185, 189, 0.18);
+  border-radius: 99px;
+
+  &:hover {
+    background: rgba(178, 185, 189, 0.3);
+  }
+}
+
+/* =============================================
+   SELECTION
+   ============================================= */
+::selection {
+  background: rgba(154, 189, 236, 0.3);
+  color: var(--c-ink);
+}
+
+/* =============================================
+   BODY — ambient gradient background
+   ============================================= */
+/* Flat canvas: no decorative gradients; surface steps carry the rhythm. */
+body {
+  background-color: var(--c-bg);
+}
+
+/* =============================================
+   NAVBAR — sticky glassmorphism
+   ============================================= */
+/* Elevation under the border, shown only while content scrolls beneath it. The
+   bottom-most bar owns the fade, so both bars share this rule. */
+.site-nav::after,
+.page-nav::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 1rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(8, 9, 14, 0.4), transparent);
+  opacity: 0;
+  transition: opacity var(--t-base);
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* No min-height: app.js measures the real height into --h-nav. */
+  /* Clears the iOS status-bar cutout in standalone mode. */
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+  padding-bottom: 1rem;
+  /* Chrome sits above the content, so it runs lighter and near-opaque. */
+  /* Slightly translucent so the blur has something to work with. */
+  background: var(--c-chrome);
+  background: color-mix(in srgb, var(--c-chrome) 92%, transparent);
+  /* The bar needs an edge of its own: the single chrome-to-content boundary,
+     since .page-nav sits inside the content. */
+  border-bottom: 1px solid var(--c-border);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+
+  a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0.15rem 0.55rem;
+    color: var(--c-muted);
+    border-radius: var(--r-pill);
+    /* Text over the blurred material needs a little more weight and tracking to
+       stay legible as content moves behind the bar. */
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition:
+      color var(--t-fast),
+      border-color var(--t-fast);
+
+    /* Pointer-only: on touch, iOS applies :hover on tap and leaves it stuck. */
+    @media (hover: hover) and (pointer: fine) {
+      /* The logo is a link, but it is not a button: no hover tint. Its press state
+         is the whole affordance. */
+      &:not(.site-brand):hover {
+        color: var(--c-ink);
+        background: var(--pill-hover);
+      }
+    }
+
+    /* Current page. `background` is deliberately not transitioned: a background
+       mid-transition has partial alpha and samples what is behind the bar. */
+    &[aria-current="page"] {
+      color: var(--c-accent);
+      background: var(--pill-current);
+      box-shadow: var(--pill-ring);
+    }
+
+    /* Touch feedback, since the platform tap highlight is off site-wide. Declared
+       after the current-page rule so pressing the current pill responds too. */
+    &:active {
+      color: var(--c-ink);
+      background: var(--pill-press);
+      transition-duration: 0.1s;
+    }
+
+    /* Invisible hit padding: 47px on a phone, 49px desktop, bar height unchanged.
+       Vertical only — the pills sit in a row, so growing them sideways would make
+       their targets overlap. */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.75rem 0;
+      /* Pseudo-elements are not matched by `*`, and this property is not reliably
+         inherited on iOS, so the hit area declares it too. */
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  & > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* The brand is a link home, but not a nav pill: same hit box, no capsule. */
+  .site-brand {
+    padding: 0;
+    border: 0;
+    border-radius: var(--r-sm);
+
+    &:active {
+      background: none;
+      opacity: 0.7;
+    }
+  }
+
+  img {
+    /* The 32px logo, sized here rather than in the markup. */
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    /* No drag ghost when the logo is dragged. */
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem 0.5rem;
+  font-size: 0.875rem;
+  /* The 20px line box the pills' 44px height was measured with. */
+  line-height: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .site-nav {
+    /* Horizontal padding lives on the inner container, so nav and section gutters
+       match; the safe-area inset has to be re-stated because padding is a shorthand. */
+    padding-top: calc(0.625rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 0.625rem;
+
+    a {
+      /* Tighter than the desktop pill: at 360px the logo plus four labelled links
+         is within ~25px of wrapping onto a second row. */
+      padding: 0.125rem 0.25rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  .nav-links {
+    gap: 0.1rem 0.25rem;
+  }
+}
+
+/* At 320px a wrapped nav pushes the in-page nav out of position; icons go. */
+@media (max-width: 360px) {
+  .site-nav .icon {
+    display: none;
+  }
+}
+
+/* =============================================
+   CARD GRIDS
+   ============================================= */
+/* Three pages, three column schedules. Each keeps the breakpoints it was tuned at. */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .card-grid--4,
+  .card-grid--5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .card-grid--pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid--5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-grid--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* =============================================
+   CARDS (skins + songs media tiles)
+   ============================================= */
+.card {
+  display: flex;
+  flex-direction: column;
+  /* Clips the media band to the card's own corners. */
+  overflow: hidden;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  /* Elevation is the surface step, never a shadow, and a card is not interactive. */
+
+  /* One centred axis: the media band, title, meta line and button labels all
+     line up. Left-aligned titles read as detached from the centred media. */
+  & > .card-body > h2,
+  & > .card-body > p {
+    text-align: center;
+  }
+
+  /* The size lives here rather than in a loose `.card h2`, which loses the tie to
+     `.section > h2`. It is the Title role's own token, shared with `.section h3`: a
+     pack's name has to outrank the button under it, not sit under the body copy. */
+  & > .card-body > h2 {
+    /* A one-line title leaves the rest of the row's height under it as a slab — 41px
+       against the 16px a two-line title gets, which reads as a hole with the title
+       pinned to the top. The spare height splits between here and the action's own
+       `margin-top: auto`, so a short title carries an even margin and every title in
+       the row lands at the same optical height. The action still ends up flush with
+       the bottom of every card. */
+    margin-top: auto;
+    margin-bottom: 0.4rem;
+    font-size: var(--text-title);
+    letter-spacing: 0;
+    /* The Title tier's leading: at 1.55 a card title reads looser than the button
+       label beneath it rather than tighter. */
+    line-height: 1.35;
+  }
+
+  /* The meta line under a title is a caption, not body copy: 0.8125rem restores the
+     step the Title tier above it is supposed to have. */
+  & > .card-body > p {
+    font-size: 0.8125rem;
+  }
+
+  & > .card-body > p + .btn {
+    margin-top: 1.5rem;
+  }
+
+  /* Ratio-driven media band; the body takes the remaining height. */
+  & > .media-frame {
+    flex: none;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  & > .card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.125rem 1.25rem 1.25rem;
+  }
+
+  /* Pin the action row to the bottom so buttons line up across cards, and let the
+     button take the card's width: the label is the whole control. */
+  & > .card-body > .btn {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  /* Because the action is pinned, a wrapped title's last line lands wherever the
+     tallest card in the row leaves it: 6px under a 19px title reads as an accident
+     rather than a group. `:has()` keeps this to the cards with no meta line — a card
+     with one already gets its air from `p + .btn` above. */
+  & > .card-body > h2:has(+ .btn) {
+    margin-bottom: 1rem;
+  }
+}
+
+.media-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--c-media);
+
+  /* Box art is wider than a clip. */
+  &.media-frame--boxart {
+    aspect-ratio: 2.4;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* =============================================
+   SKIN PREVIEWS — poster until pressed
+   ============================================= */
+/* The whole thumbnail is the button. Nothing is fetched until it is pressed. */
+.preview-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  /* A light scrim, so the icon reads on a bright poster too. */
+  background: rgba(17, 18, 25, 0.18);
+  border: 0;
+  cursor: pointer;
+
+  /* `display: grid` above would otherwise beat the UA's [hidden] rule. */
+  &[hidden] {
+    display: none;
+  }
+
+  /* The ring replaces the triangle while the clip loads. */
+  &[aria-busy="true"] .preview-play-icon {
+    display: none;
+  }
+
+  &[aria-busy="true"]::after {
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid rgba(234, 239, 247, 0.25);
+    border-top-color: var(--c-accent);
+    border-radius: 50%;
+    animation: preview-spin 0.8s linear infinite;
+  }
+
+  /* The frame clips its own overflow, so the ring has to sit inside it. */
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+.preview-play-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0.7rem;
+  color: var(--c-on-accent);
+  fill: currentColor;
+  background: var(--c-accent);
+  border-radius: 50%;
+  transition: transform var(--t-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .preview-play:hover .preview-play-icon {
+    transform: scale(1.08);
+  }
+}
+
+.preview-play:active .preview-play-icon {
+  transform: scale(0.95);
+}
+
+/* Loading and failure text. A live region, so it is announced as well as shown. */
+.preview-status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  text-align: center;
+  color: var(--c-ink);
+  background: rgba(17, 18, 25, 0.85);
+
+  &:empty {
+    display: none;
+  }
+}
+
+@keyframes preview-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* =============================================
+   WARNING / INFO BOXES
+   ============================================= */
+.notice {
+  padding: 1rem;
+  background: var(--c-notice-fill);
+  border: 1px solid var(--c-notice-border);
+  border-radius: var(--r-md);
+}
+
+/* Inline advisory chip inside an answer (the two amber warnings). */
+.notice-inline {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--c-notice-ink);
+  background: var(--c-notice-fill);
+  border: 1px solid var(--c-notice-border);
+  border-radius: var(--r-md);
+}
+
+/* =============================================
+   PANELS — FAQ items, mode cards, setup boxes
+   ============================================= */
+.panel {
+  padding: 1.25rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+}
+
+/* A panel's head: glyph, then the mode's name. */
+.panel-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* The mode panels' glyph, sized in em so it tracks the panel head. */
+.mode-icon {
+  flex: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--c-accent);
+}
+
+/* =============================================
+   TABLES
+   ============================================= */
+.table-wrap {
+  /* Wide spec tables scroll inside their own box instead of pushing the page
+     sideways on phones. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  table {
+    min-width: 100%;
+    text-align: left;
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    font-variant-numeric: tabular-nums;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid var(--c-divider);
+  }
+
+  tbody tr:last-child td,
+  tbody tr:last-child th {
+    border-bottom: none;
+  }
+}
+
+.table-head {
+  background: var(--c-media);
+
+  th {
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--c-accent);
+    border-bottom: 1px solid var(--c-border);
+  }
+}
+
+.table-row {
+  background: rgba(17, 18, 25, 0.45);
+
+  &:nth-child(even) {
+    background: rgba(12, 13, 19, 0.5);
+  }
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+/* Light fill with a DARK label. A light label on a light-blue fill only reaches
+   ~3.4:1 at the dark end of the gradient; dark-on-light clears 9:1. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; /* touch target */
+  padding: 0.5rem 1rem;
+  color: var(--c-on-accent);
+  background: var(--c-accent);
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    background var(--t-base),
+    transform var(--t-base);
+
+  /* Buttons keep their hover feedback — they are the one thing on a card that is
+     actually interactive. Pointer-only, as above. */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--c-accent-hover);
+    }
+  }
+
+  /* Press lands on pointer-down and is quicker than the release. */
+  &:active {
+    transform: scale(0.95);
+    transition-duration: 0.1s;
+  }
+}
+
+/* Mirror row under the primary action: same hit area, far less weight. */
+.card-mirrors {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; /* touch target */
+  padding: 0.5rem 0.75rem;
+  color: var(--c-muted);
+  font-size: 0.875rem;
+  /* 400, not 500: the weight ladder is 300 / 400 / 600 / 700. */
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-align: center;
+  background: rgba(178, 185, 189, 0.07);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  transition:
+    color var(--t-fast),
+    background var(--t-fast),
+    border-color var(--t-fast);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--c-ink);
+      background: rgba(178, 185, 189, 0.13);
+      border-color: var(--c-border-accent);
+    }
+  }
+
+  &:active {
+    background: rgba(178, 185, 189, 0.18);
+    transition-duration: 0.1s;
+  }
+}
+
+/* =============================================
+   LINKS IN PROSE
+   ============================================= */
+/* Prose links: accent at rest and underlined, because a hover-only underline is
+   invisible on touch. Container-scoped so controls can never be caught by it.
+   Headings are in the list because a link inside one is still content: the
+   `#consetup` game titles are `<h3><a>`. The excluded classes are the two
+   controls and the card byline. */
+.section
+  :is(h2, h3, h4, p, li, td, th, dt, dd, .notice, .notice-inline, .faq-answer)
+  a:not(.btn):not(.btn-ghost):not(.credit-link) {
+  color: var(--c-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  /* The rule sits under the accent rather than in it, so a dense table of links does
+     not read as four rows of blue. */
+  text-decoration-color: color-mix(in srgb, var(--c-accent) 45%, transparent);
+  transition:
+    color var(--t-fast),
+    text-decoration-color var(--t-fast);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--c-accent-hover);
+      text-decoration-color: currentColor;
+    }
+  }
+
+  /* Touch feedback, matching the pills. */
+  &:active {
+    color: var(--c-ink);
+    text-decoration-color: currentColor;
+  }
+}
+
+/* The quiet link: a label rather than a sentence. A card's byline and the game titles
+   in `Yuancon Setup` are links that must not be underlined — a two-word name reads as a
+   third line of body copy, and a title carrying a rule reads as a mis-set heading. So the
+   rule arrives on a pointer instead, and only there: touch never hovers, so nothing
+   flickers under a thumb, and the accent alone carries the affordance at rest. */
+.credit-link {
+  color: var(--c-accent);
+  text-decoration: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+/* Table links are the purchase actions, and inside the small table scale the site uses
+   below 1024px they measure 19px tall — under the 24px thumb floor. Same invisible
+   expansion the nav pills use. Horizontal stays 0 so the adjacent
+   "Buy 20g / 40g / 60g" links can never overlap each other. */
+.section :is(td, th) a {
+  position: relative;
+}
+
+.section :is(td, th) a::before {
+  content: "";
+  position: absolute;
+  inset: -0.25rem 0;
+}
+
+/* =============================================
+   SECTIONS
+   ============================================= */
+.section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+  /* A section is separated by a hairline at half the panel border's strength — this
+     surface has no second colour to change into. */
+  border-top: 1px solid var(--c-divider);
+
+  /* The section's own heading. Direct children only: a card title inside a section
+     would otherwise take the section's 30px size and its accent bar. */
+  & > h2 {
+    margin-bottom: var(--space-lg);
+    font-size: clamp(1.5rem, 1.3rem + 0.7vw, 1.875rem);
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: var(--text-title);
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  /* Keep prose to a comfortable measure on ultrawide screens. */
+  & > p {
+    max-width: var(--measure-prose);
+  }
+}
+
+/* A grid page's first section: same rhythm, no hairline (the nav draws that edge). */
+.section-lead {
+  border-top: 0;
+}
+
+/* =============================================
+   PAGE NAV — in-page section jumps
+   ============================================= */
+.page-nav {
+  /* Sticky at every width: on a phone it is the only way back up a section. */
+  position: sticky;
+  top: var(--h-nav);
+  z-index: 40;
+  /* No hairline: the site nav's bottom border is the chrome boundary. */
+  /* The bar colour, not the page colour: both bars share one material. */
+  background: rgba(41, 44, 59, 0.92);
+  background: color-mix(in srgb, var(--c-chrome) 92%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+.page-nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  padding-block: 0.7rem;
+}
+
+.page-nav-title {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--c-faint);
+  white-space: nowrap;
+}
+
+.page-nav-list {
+  display: flex;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-nav-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* touch target */
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8125rem;
+  /* 400, not 500: the weight ladder is 300 / 400 / 600 / 700. The pill's
+     accent colour and border carry the "current section" signal instead. */
+  font-weight: 400;
+  color: var(--c-muted);
+  white-space: nowrap;
+  border-radius: 999px;
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast);
+
+  @media (hover: hover) and (pointer: fine) {
+    /* Same token as the site-nav pills, so the two bars cannot diverge. */
+    &:hover {
+      color: var(--c-ink);
+      background: var(--pill-hover);
+    }
+  }
+
+  /* Opaque for the same reason as the site-nav pills, and `background` is not in
+     the transition list either — see that rule. */
+  &[aria-current="location"] {
+    color: var(--c-accent);
+    background: var(--pill-current);
+    box-shadow: var(--pill-ring);
+  }
+
+  /* Touch feedback, since the platform tap highlight is off site-wide. Matches the
+     site-nav pills' press state. */
+  &:active {
+    color: var(--c-ink);
+    background: var(--pill-press);
+    transition-duration: 0.1s;
+  }
+}
+
+/* Below 1024 the label wraps the bar into two rows, so it is dropped and the pills
+   scroll sideways. `display: none` keeps the nav's accessible name. */
+@media (max-width: 1023px) {
+  .page-nav-inner {
+    padding-block: 0.4rem;
+  }
+
+  .page-nav-title {
+    display: none;
+  }
+
+  .page-nav-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* app.js sets the two flags; the mask fades only the edge that is cut. The fade is
+     1.25rem rather than 0.75rem because the reader's only cue that the row scrolls is a
+     pill cut mid-label — measured 40% visible at 390px, 84% at 320px — and a fade too
+     short to read as a gradient looks like a rendering fault instead of "more here". */
+  .page-nav-list[data-overflow-start] {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 1.25rem);
+    mask-image: linear-gradient(to right, transparent, #000 1.25rem);
+  }
+
+  .page-nav-list[data-overflow-end] {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 1.25rem);
+    mask-image: linear-gradient(to left, transparent, #000 1.25rem);
+  }
+
+  .page-nav-list[data-overflow-start][data-overflow-end] {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 1.25rem,
+      #000 calc(100% - 1.25rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 1.25rem,
+      #000 calc(100% - 1.25rem),
+      transparent
+    );
+  }
+}
+
+/* Anchor jumps clear the measured chrome; the fallback covers no-JS. */
+section[id],
+details[id] {
+  scroll-margin-top: calc(var(--h-chrome, calc(var(--h-nav) + 5.25rem)) + 0.75rem);
+}
+
+/* =============================================
+   FAQ — native <details> accordion
+   ============================================= */
+/* Each question is its own card with a real gutter; hairline-divided rows read as
+   one wall rather than a list. */
+.faq-list {
+  display: grid;
+  gap: calc(var(--space-lg) * var(--faq-scale));
+  max-width: var(--faq-measure);
+}
+
+.faq-item {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  /* Clips the question's hover/open tint to the card's own corners. */
+  overflow: hidden;
+  transition: border-color var(--t-base);
+}
+
+/* The open card states itself, and drops the state as the collapse starts. */
+.faq-item[open]:not(.is-closing) {
+  border-color: var(--c-border-accent);
+}
+
+/* The whole row is the control; the accent is for hover and open only, because 22
+   accent headings would be colour noise. */
+.faq-q {
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.25 6 7.75l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(1.25rem * var(--faq-scale));
+  padding: calc(var(--space-md) * var(--faq-scale)) calc(var(--space-lg) * var(--faq-scale));
+  /* Clear the floating back-to-top pill. Its left edge sits 52px inside the viewport
+     (44px wide, 0.5rem off the corner), so a chevron inside that column is covered and a
+     thumb aiming for "expand" hits "back to top" instead — reproduced with synthesised
+     touch at 390, 768 and 1280. A 2.75rem floor keeps positive clearance in both engines
+     (WebKit's viewport runs ~5px narrower, so it needs the extra step). */
+  padding-right: max(calc(var(--space-lg) * var(--faq-scale)), 2.75rem);
+  color: var(--c-ink);
+  cursor: pointer;
+  list-style: none;
+  /* A fast double-tap, or a rapid double-click, must not select the question text.
+     The answer keeps the default, so its text stays copyable. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  transition:
+    background var(--t-fast),
+    color var(--t-fast);
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  /* A real SVG with round caps, masked so it inherits currentColor. */
+  &::after {
+    content: "";
+    flex: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    background-color: currentColor;
+    opacity: 0.45;
+    -webkit-mask-image: var(--chevron);
+    mask-image: var(--chevron);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transition:
+      transform var(--drawer-duration) var(--drawer-easing),
+      opacity var(--t-fast);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--c-accent);
+      background: rgba(154, 189, 236, 0.06);
+
+      &::after {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  /* Feedback on pointer-down, not on release. */
+  &:active {
+    background: rgba(154, 189, 236, 0.1);
+  }
+
+  /* The default +2px offset is clipped by the item's rounded corners. */
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+.faq-q h3 {
+  flex: 1;
+  margin: 0;
+  font-size: var(--faq-q-size);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.faq-item[open]:not(.is-closing) > .faq-q {
+  color: var(--c-accent);
+  background: rgba(154, 189, 236, 0.05);
+
+  &::after {
+    opacity: 0.85;
+    transform: rotate(180deg);
+  }
+}
+
+.faq-answer {
+  /* Vertical padding is animated too: border-box cannot shrink below it. */
+  padding: calc(var(--space-md) * var(--faq-scale)) calc(var(--space-lg) * var(--faq-scale))
+    calc(var(--space-lg) * var(--faq-scale));
+  /* No measure here: the children carry it, so media can run wider than prose. */
+  max-width: none;
+  /* Clips the drawer; faq.js fades the content because a clipped box slices glyphs. */
+  overflow: hidden;
+  color: var(--c-muted);
+}
+
+/* Headings keep the ink tier inside an answer too: `.faq-answer` colours prose, and
+   inheriting it collapsed the h4 sub-heading (#faq-14's "Method 1") onto the bold line
+   under it — same size, same weight, same colour. */
+.faq-answer :is(h2, h3, h4) {
+  color: var(--c-ink);
+}
+
+/* Vertical rhythm inside an answer: paragraphs, lists and media each get air
+   instead of butting straight up against each other. */
+.faq-answer > * + * {
+  margin-top: calc(var(--space-md) * var(--faq-scale));
+}
+
+/* Everything in an open card starts on one axis, the card's own left padding, so
+   question, prose, lists and video share an edge. The measure is wrapped in `min()`
+   with the card's own width because a replaced element carries an intrinsic size: the
+   FAQ-17 PCB photo is authored at 403px and was being sliced by the card's
+   `overflow: hidden` on any phone narrower than that. */
+.faq-answer > :is(p, ul, ol, dl, blockquote, pre, img, .notice-inline) {
+  display: block;
+  max-width: min(100%, var(--measure-prose));
+}
+
+/* A shrink-wrapped child still hugs its own text, so the inline chip becomes a table
+   box: block-level for the axis above, but no wider than what it says. */
+.faq-answer > .notice-inline {
+  display: table;
+}
+
+/* A video may use more than the reading measure — an instructional clip earns the
+   width — but never the whole 1248px card. */
+.faq-answer > .video-frame {
+  max-width: var(--faq-media);
+}
+
+/* The media surface token rather than a hardcoded fill, so the frame keeps the
+   site's neutral-purple cast. */
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--c-media);
+  border-radius: var(--r-lg);
+}
+
+.media-frame video,
+.video-frame video {
+  /* Video.js keeps width/height inline, so the fill needs `!important`. `contain`
+     rather than `cover`: an instructional clip must not be cropped. */
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+/* No CSS drawer animation: only Chromium can do it, so faq.js owns it everywhere. */
+
+/* =============================================
+   INLINE CODE & PRE BLOCKS
+   ============================================= */
+.inline-code,
+.code-block {
+  /* System monospace: code does not need a downloaded webfont. */
+  font-family: var(--font-mono);
+}
+
+.inline-code {
+  padding: 0.1em 0.42em;
+  background: rgba(12, 13, 19, 0.75);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xs);
+  font-size: 0.875em;
+}
+
+.code-block {
+  padding: 0.75rem;
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+  background: rgba(12, 13, 19, 0.85);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+}
+
+/* =============================================
+   SCROLL STATE
+   ============================================= */
+/* Set by app.js; the bottom-most floating bar owns the fade. */
+html[data-scrolled] .site-nav::after,
+html[data-scrolled] .page-nav::after {
+  opacity: 1;
+}
+
+html[data-scrolled]:has(.page-nav) .site-nav::after {
+  opacity: 0;
+}
+
+/* =============================================
+   PREFERENCES
+   ============================================= */
+/* Translucent chrome is a legibility problem for anyone who asked for less of
+   it — give them the solid material instead of the blur. */
+@media (prefers-reduced-transparency: reduce) {
+  .site-nav,
+  .page-nav {
+    background: var(--c-chrome);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Reduced motion is handled in base.css; this is the contrast equivalent. */
+@media (prefers-contrast: more) {
+  :root {
+    --c-border: rgba(178, 185, 189, 0.3);
+    --c-divider: rgba(178, 185, 189, 0.18);
+    --c-muted: #dfe5ec;
+    --c-faint: #c3cad2;
+  }
+}

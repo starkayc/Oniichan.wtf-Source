@@ -2,10 +2,17 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    branches: [master]
+    paths:
+      # The site lives in help/, but the root index.html and 404.html are published too.
+      - "help/**"
+      - "index.html"
+      - "404.html"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/ci.yml"
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
-# Sets permissions for GitHub Pages deployment
 permissions:
   contents: read
   pages: write
@@ -22,10 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Node
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "lts/*"
           cache: "npm"
@@ -35,6 +42,14 @@ jobs:
 
       - name: Check Prettier formatting
         run: npm run lint
+
+      # A custom `if:` replaces the implicit success(), and forgetting it lets a failed
+      # upload commit a half-patched card. Keep every gated step carrying it.
+      - name: Gated release steps must require success()
+        run: |
+          total=$(grep -c 'steps.check.outputs.changed' .github/workflows/sdvx-release.yml)
+          gated=$(grep -c 'success() && steps.check.outputs.changed' .github/workflows/sdvx-release.yml)
+          [ "$total" = "$gated" ] || { echo "::error::a gated step is missing success()"; exit 1; }
 
   deploy:
     name: Deploy to GitHub Pages
@@ -46,16 +61,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
+      - name: Stage the site
+        run: |
+          mkdir _site
+          cp -r index.html help CNAME robots.txt sitemap.xml 404.html _site/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
-          path: "."
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
